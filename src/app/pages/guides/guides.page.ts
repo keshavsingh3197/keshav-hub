@@ -1,6 +1,7 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ENGINEERING_GUIDES, EngineeringGuide } from '../../data/guides.catalog';
+import { I18nHubService } from '../../services/i18n-hub.service';
 
 type GuideCatFilter = 'All' | EngineeringGuide['category'];
 
@@ -11,12 +12,10 @@ type GuideCatFilter = 'All' | EngineeringGuide['category'];
   template: `
     <section class="page-header">
       <div class="container">
-        <div class="breadcrumb"><a routerLink="/">Home</a> / <span>Guides &amp; Playbooks</span></div>
-        <span class="eyebrow">Original Editorial Articles</span>
-        <h1>Engineering Architecture, Creator Media &amp; Compliance Guides</h1>
-        <p class="lead">
-          First-hand technical writeups drawn from building eight interconnected web applications, FFmpeg/3D animation tools, Panchang ephemeris math, and Google AdSense / YouTube compliant hubs.
-        </p>
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <span>{{ i18n.t('nav.guides') }}</span></div>
+        <span class="eyebrow">{{ i18n.t('sections.guidesEyebrow') }}</span>
+        <h1>{{ i18n.t('pages.guidesTitle') }}</h1>
+        <p class="lead">{{ i18n.t('pages.guidesLead') }}</p>
       </div>
     </section>
 
@@ -63,6 +62,7 @@ type GuideCatFilter = 'All' | EngineeringGuide['category'];
   `,
 })
 export class GuidesPageComponent {
+  readonly i18n = inject(I18nHubService);
   readonly categories: GuideCatFilter[] = [
     'All',
     'Architecture',

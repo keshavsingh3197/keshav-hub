@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ECOSYSTEM_APPS } from '../../data/apps.catalog';
 import { ENGINEERING_GUIDES } from '../../data/guides.catalog';
 import { HUB_TOOLS } from '../../data/creators-plans.catalog';
+import { I18nHubService } from '../../services/i18n-hub.service';
 
 @Component({
   selector: 'app-privacy-page',
@@ -11,9 +12,9 @@ import { HUB_TOOLS } from '../../data/creators-plans.catalog';
   template: `
     <section class="page-header">
       <div class="container">
-        <div class="breadcrumb"><a routerLink="/">Home</a> / <span>Privacy Policy</span></div>
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <span>Privacy Policy</span></div>
         <span class="eyebrow">Legal &amp; Compliance</span>
-        <h1>Privacy Policy</h1>
+        <h1>{{ i18n.t('pages.privacyTitle') }}</h1>
         <p class="lead">Effective / Last Updated: 18 November 2026 &middot; Applies to keshavsingh.in and connected ecosystem services.</p>
       </div>
     </section>
@@ -58,7 +59,9 @@ import { HUB_TOOLS } from '../../data/creators-plans.catalog';
     </section>
   `,
 })
-export class PrivacyPolicyPageComponent {}
+export class PrivacyPolicyPageComponent {
+  readonly i18n = inject(I18nHubService);
+}
 
 @Component({
   selector: 'app-terms-page',
@@ -67,9 +70,9 @@ export class PrivacyPolicyPageComponent {}
   template: `
     <section class="page-header">
       <div class="container">
-        <div class="breadcrumb"><a routerLink="/">Home</a> / <span>Terms &amp; Conditions</span></div>
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <span>Terms &amp; Conditions</span></div>
         <span class="eyebrow">Legal &amp; Compliance</span>
-        <h1>Terms &amp; Conditions</h1>
+        <h1>{{ i18n.t('pages.termsTitle') }}</h1>
         <p class="lead">Guidelines governing fair use of keshavsingh.in tools, guides, and connected web applications.</p>
       </div>
     </section>
@@ -89,7 +92,9 @@ export class PrivacyPolicyPageComponent {}
     </section>
   `,
 })
-export class TermsPageComponent {}
+export class TermsPageComponent {
+  readonly i18n = inject(I18nHubService);
+}
 
 @Component({
   selector: 'app-cookie-page',
@@ -98,9 +103,9 @@ export class TermsPageComponent {}
   template: `
     <section class="page-header">
       <div class="container">
-        <div class="breadcrumb"><a routerLink="/">Home</a> / <span>Cookie Policy</span></div>
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <span>Cookie Policy</span></div>
         <span class="eyebrow">Legal &amp; Compliance</span>
-        <h1>Cookie Policy &amp; Preferences</h1>
+        <h1>{{ i18n.t('pages.cookiesTitle') }}</h1>
         <p class="lead">Transparent explanation of strictly functional preferences, analytics, and Google AdSense cookies.</p>
       </div>
     </section>
@@ -127,6 +132,7 @@ export class TermsPageComponent {}
   `,
 })
 export class CookiePolicyPageComponent {
+  readonly i18n = inject(I18nHubService);
   readonly currentConsent = signal(this.readConsent());
 
   private readConsent(): string {
@@ -168,7 +174,9 @@ export class CookiePolicyPageComponent {
     </section>
   `,
 })
-export class DisclaimerPageComponent {}
+export class DisclaimerPageComponent {
+  readonly i18n = inject(I18nHubService);
+}
 
 @Component({
   selector: 'app-sitemap-page',
@@ -177,9 +185,9 @@ export class DisclaimerPageComponent {}
   template: `
     <section class="page-header">
       <div class="container">
-        <div class="breadcrumb"><a routerLink="/">Home</a> / <span>Sitemap</span></div>
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <span>Sitemap</span></div>
         <span class="eyebrow">Directory</span>
-        <h1>Complete Site Index</h1>
+        <h1>{{ i18n.t('pages.sitemapTitle') }}</h1>
         <p class="lead">Every public tool, ecosystem application guide, article, and policy route hosted on keshavsingh.in.</p>
       </div>
     </section>
@@ -231,15 +239,108 @@ export class DisclaimerPageComponent {}
               <li><a [routerLink]="['/guides', g.slug]">{{ g.title }}</a></li>
             }
           </ul>
+          <h2>Legacy &amp; Convenience Shortcuts</h2>
+          <ul>
+            <li><a routerLink="/privacy">/privacy</a> (FamSphere Google Play URL &rarr; Privacy Policy)</li>
+            <li><a routerLink="/resume">/resume</a> (Portfolio CV bridge &rarr; portfolio.keshavsingh.in)</li>
+            <li><a routerLink="/data-deletion">/data-deletion</a> (Account &amp; Data Deletion Guide)</li>
+            <li><a routerLink="/robots">/robots</a> (Crawler Directives Overview)</li>
+          </ul>
         </div>
       </div>
     </section>
   `,
 })
 export class SitemapPageComponent {
+  readonly i18n = inject(I18nHubService);
   readonly tools = HUB_TOOLS;
   readonly apps = ECOSYSTEM_APPS;
   readonly guides = ENGINEERING_GUIDES;
+}
+
+@Component({
+  selector: 'app-robots-page',
+  standalone: true,
+  imports: [RouterLink],
+  template: `
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <span>Robots Directives</span></div>
+        <span class="eyebrow">Crawler Access</span>
+        <h1>Robots.txt Directives</h1>
+        <p class="lead">Human-readable overview of crawler permissions matching /robots.txt for keshavsingh.in.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container prose card">
+        <pre class="mono">User-agent: *
+Allow: /
+
+Sitemap: https://keshavsingh.in/sitemap.xml</pre>
+        <p>All public calculators, guides, ecosystem walkthroughs, and policy documents are open to search indexing. See the full <a routerLink="/sitemap">HTML Sitemap</a> or raw <a href="/sitemap.xml">sitemap.xml</a>.</p>
+      </div>
+    </section>
+  `,
+})
+export class RobotsPageComponent {
+  readonly i18n = inject(I18nHubService);
+}
+
+@Component({
+  selector: 'app-data-deletion-page',
+  standalone: true,
+  imports: [RouterLink],
+  template: `
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <a routerLink="/privacy-policy">Privacy</a> / <span>Data Deletion</span></div>
+        <span class="eyebrow">Privacy Rights</span>
+        <h1>Account &amp; Data Deletion Instructions</h1>
+        <p class="lead">How to delete Central SSO profile records, FamSphere mobile data, or submitted Contact messages.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container prose">
+        <h2>1. Ecosystem Accounts (id.keshavsingh.in / admin.keshavsingh.in)</h2>
+        <p>Authenticated users can review connected sessions, revoke passkeys, disconnect YouTube OAuth tokens inside AnimStudio Settings, or submit an account deletion ticket directly in the central Admin dashboard.</p>
+        <h2>2. FamSphere Mobile App &amp; Contact Messages</h2>
+        <p>Uninstalling FamSphere removes local on-device caches immediately. To purge any stored family circle records or contact form inquiries encrypted on our server, write to <a href="mailto:keshavsingh4522@gmail.com">keshavsingh4522&#64;gmail.com</a> or use our <a routerLink="/contact">Contact Form</a> selecting "Privacy / Data Deletion Request".</p>
+      </div>
+    </section>
+  `,
+})
+export class DataDeletionPageComponent {
+  readonly i18n = inject(I18nHubService);
+}
+
+@Component({
+  selector: 'app-resume-bridge-page',
+  standalone: true,
+  imports: [RouterLink],
+  template: `
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <span>Engineering Resume</span></div>
+        <span class="eyebrow">Dedicated Portfolio Subdomain</span>
+        <h1>{{ i18n.t('pages.resumeTitle') }}</h1>
+        <p class="lead">Keshav’s personal software career timeline, .NET / Azure / AWS skills, GitHub repositories, and printable PDF CV now live cleanly on portfolio.keshavsingh.in.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container prose card">
+        <h2>Why This Moved to portfolio.keshavsingh.in</h2>
+        <p>We separated Keshav Singh’s personal hiring CV from the main keshavsingh.in domain so recruiters enjoy a focused distraction-free experience while keshavsingh.in hosts interactive browser calculators, creator studios, and original engineering guides.</p>
+        <div class="pill-bar" style="margin-top: 1rem;">
+          <a href="https://portfolio.keshavsingh.in/resume" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open Full Resume &amp; PDF CV &#8599;</a>
+          <a href="https://portfolio.keshavsingh.in" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Open portfolio.keshavsingh.in &#8599;</a>
+          <a routerLink="/" class="btn btn-outline">Explore Ecosystem Hub</a>
+        </div>
+      </div>
+    </section>
+  `,
+})
+export class ResumeBridgePageComponent {
+  readonly i18n = inject(I18nHubService);
 }
 
 @Component({

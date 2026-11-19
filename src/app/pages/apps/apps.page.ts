@@ -1,7 +1,8 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { ECOSYSTEM_APPS, EcosystemAppDetail } from '../../data/apps.catalog';
+import { I18nHubService } from '../../services/i18n-hub.service';
 
 type CategoryFilter = 'All' | EcosystemAppDetail['category'];
 
@@ -12,12 +13,10 @@ type CategoryFilter = 'All' | EcosystemAppDetail['category'];
   template: `
     <section class="page-header">
       <div class="container">
-        <div class="breadcrumb"><a routerLink="/">Home</a> / <span>Ecosystem Apps</span></div>
-        <span class="eyebrow">Connected Platforms</span>
-        <h1>All Ecosystem Websites &amp; Applications</h1>
-        <p class="lead">
-          Detailed overview of every live web platform and mobile app connected under keshavsingh.in, what visitors can do on each one, and how they integrate safely.
-        </p>
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home', 'Home') }}</a> / <span>{{ i18n.t('nav.apps', 'Apps') }}</span></div>
+        <span class="eyebrow">{{ i18n.t('sections.appsEyebrow') }}</span>
+        <h1>{{ i18n.t('pages.appsTitle') }}</h1>
+        <p class="lead">{{ i18n.t('pages.appsLead') }}</p>
       </div>
     </section>
 
@@ -103,6 +102,7 @@ type CategoryFilter = 'All' | EcosystemAppDetail['category'];
   `,
 })
 export class AppsPageComponent {
+  readonly i18n = inject(I18nHubService);
   readonly categories: CategoryFilter[] = [
     'All',
     'Creator & Media',

@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { CREATOR_CHANNELS, CURATED_VIDEOS } from '../../data/creators-plans.catalog';
 import { EcosystemApiService, LiveVideoRecord } from '../../services/ecosystem-api.service';
+import { I18nHubService } from '../../services/i18n-hub.service';
 
 @Component({
   selector: 'app-creators-page',
@@ -11,12 +12,10 @@ import { EcosystemApiService, LiveVideoRecord } from '../../services/ecosystem-a
   template: `
     <section class="page-header">
       <div class="container">
-        <div class="breadcrumb"><a routerLink="/">Home</a> / <span>Creator Studio &amp; Work</span></div>
-        <span class="eyebrow">Original Video Studios</span>
-        <h1>Creator Channels, 3D Comedy &amp; Cultural Storytelling</h1>
-        <p class="lead">
-          Behind-the-scenes workflows, active YouTube channels, original 3D animation pipelines built inside AnimStudio AI, and searchable multi-channel video library.
-        </p>
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home', 'Home') }}</a> / <span>{{ i18n.t('nav.creators', 'Creators') }}</span></div>
+        <span class="eyebrow">{{ i18n.t('sections.creatorsEyebrow') }}</span>
+        <h1>{{ i18n.t('pages.creatorsTitle') }}</h1>
+        <p class="lead">{{ i18n.t('pages.creatorsLead') }}</p>
       </div>
     </section>
 
@@ -121,6 +120,7 @@ import { EcosystemApiService, LiveVideoRecord } from '../../services/ecosystem-a
 })
 export class CreatorsPageComponent implements OnInit {
   private readonly api = inject(EcosystemApiService);
+  readonly i18n = inject(I18nHubService);
 
   readonly channels = CREATOR_CHANNELS;
   readonly query = signal('');

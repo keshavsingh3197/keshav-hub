@@ -2,6 +2,7 @@ import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HUB_TOOLS } from '../../data/creators-plans.catalog';
+import { I18nHubService } from '../../services/i18n-hub.service';
 import { SeoHubService } from '../../services/seo-hub.service';
 import {
   GeoTier,
@@ -22,11 +23,11 @@ import {
       <section class="page-header">
         <div class="container">
           <div class="breadcrumb">
-            <a routerLink="/">Home</a> / <a routerLink="/tools">Tools</a> / <span>{{ item.title }}</span>
+            <a routerLink="/">{{ i18n.t('nav.home') }}</a> / <a routerLink="/tools">{{ i18n.t('nav.tools') }}</a> / <span>{{ i18n.t('items.tools.' + item.slug + '.title', item.title) }}</span>
           </div>
-          <span class="eyebrow">{{ item.badge }}</span>
-          <h1>{{ item.title }}</h1>
-          <p class="lead">{{ item.shortDesc }}</p>
+          <span class="eyebrow">{{ i18n.t('items.tools.' + item.slug + '.badge', item.badge) }}</span>
+          <h1>{{ i18n.t('items.tools.' + item.slug + '.title', item.title) }}</h1>
+          <p class="lead">{{ i18n.t('items.tools.' + item.slug + '.shortDesc', item.shortDesc) }}</p>
         </div>
       </section>
 
@@ -332,6 +333,7 @@ import {
 export class ToolDetailPageComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly seo = inject(SeoHubService);
+  readonly i18n = inject(I18nHubService);
 
   readonly tool = computed(() => {
     const slug = this.route.snapshot.paramMap.get('slug') ?? '';

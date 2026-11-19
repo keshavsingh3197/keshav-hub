@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MEMBERSHIP_PLANS, ROADMAP_MILESTONES } from '../../data/creators-plans.catalog';
+import { I18nHubService } from '../../services/i18n-hub.service';
 
 @Component({
   selector: 'app-plans-page',
@@ -9,9 +10,9 @@ import { MEMBERSHIP_PLANS, ROADMAP_MILESTONES } from '../../data/creators-plans.
   template: `
     <section class="page-header">
       <div class="container">
-        <div class="breadcrumb"><a routerLink="/">Home</a> / <span>Plans &amp; Membership</span></div>
-        <span class="eyebrow">Ecosystem Membership Tiers</span>
-        <h1>Plans, Creator Access &amp; Community Participation</h1>
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <span>{{ i18n.t('nav.plans') }}</span></div>
+        <span class="eyebrow">{{ i18n.t('sections.plansEyebrow') }}</span>
+        <h1>{{ i18n.t('pages.plansTitle') }}</h1>
         <p class="lead">
           All public tools, guides, Vedic calendars, and open-source notes remain free forever. Verified SSO memberships unlock saved multi-app workspaces, creator collaboration, and transparent tournament patronage.
         </p>
@@ -67,6 +68,7 @@ import { MEMBERSHIP_PLANS, ROADMAP_MILESTONES } from '../../data/creators-plans.
   `,
 })
 export class PlansPageComponent {
+  readonly i18n = inject(I18nHubService);
   readonly plans = MEMBERSHIP_PLANS;
 }
 
@@ -77,9 +79,9 @@ export class PlansPageComponent {
   template: `
     <section class="page-header">
       <div class="container">
-        <div class="breadcrumb"><a routerLink="/">Home</a> / <a routerLink="/plans">Plans</a> / <span>Roadmap</span></div>
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <a routerLink="/plans">{{ i18n.t('nav.plans') }}</a> / <span>Roadmap</span></div>
         <span class="eyebrow">Public Product Roadmap</span>
-        <h1>What We Built &amp; What Is Shipping Next (2026–2027)</h1>
+        <h1>{{ i18n.t('pages.roadmapTitle') }}</h1>
         <p class="lead">
           Transparent engineering and creator schedule covering keshavsingh.in utilities, AnimStudio AI 3D pipelines, bilingual channel launches, and community tournaments.
         </p>
@@ -124,6 +126,7 @@ export class PlansPageComponent {
   `,
 })
 export class RoadmapPageComponent {
+  readonly i18n = inject(I18nHubService);
   readonly milestones = ROADMAP_MILESTONES;
 }
 
@@ -134,9 +137,9 @@ export class RoadmapPageComponent {
   template: `
     <section class="page-header">
       <div class="container">
-        <div class="breadcrumb"><a routerLink="/">Home</a> / <span>Interact</span></div>
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <span>Interact</span></div>
         <span class="eyebrow">Community &amp; Collaboration</span>
-        <h1>How Visitors, Creators &amp; Developers Can Interact</h1>
+        <h1>{{ i18n.t('pages.interactTitle') }}</h1>
         <p class="lead">
           Every way to engage with Keshav Singh and sibling platforms safely—from live quiz participation and commented technical notes to direct messages and open-source PRs.
         </p>
@@ -175,4 +178,6 @@ export class RoadmapPageComponent {
     .muted { color: var(--text-muted); margin-bottom: 1.15rem; }
   `,
 })
-export class InteractPageComponent {}
+export class InteractPageComponent {
+  readonly i18n = inject(I18nHubService);
+}

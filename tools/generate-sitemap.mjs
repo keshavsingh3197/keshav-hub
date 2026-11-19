@@ -27,7 +27,10 @@ const staticRoutes = [
   'terms',
   'cookie-policy',
   'disclaimer',
+  'data-deletion',
+  'robots',
   'sitemap',
+  'resume',
 ];
 
 const dynamicRoutes = [

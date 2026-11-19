@@ -1,0 +1,162 @@
+{
+  "meta": {
+    "locale": "en",
+    "nativeName": "English"
+  },
+  "nav": {
+    "brandSub": "Ecosystem & Creator Hub",
+    "home": "Home",
+    "apps": "Apps",
+    "tools": "Tools",
+    "creators": "Creators",
+    "guides": "Guides",
+    "plans": "Plans",
+    "about": "About",
+    "contact": "Contact",
+    "portfolio": "Portfolio ↗",
+    "searchBtn": "Search",
+    "searchPlaceholder": "Search tools, apps, guides, channels..."
+  },
+  "hero": {
+    "eyebrow": "keshavsingh.in · Ecosystem & Creator Hub",
+    "title": "Interactive Web Tools, Creator Studios & Original Engineering Guides",
+    "lead": "The central hub for all web applications, 3D animation workflows, Vedic calendar tools, and engineering guides built by Keshav Singh. Use browser calculators with zero login, explore all eight connected platforms, or read in-depth tutorials.",
+    "ctaTools": "Try Interactive Tools",
+    "ctaApps": "Explore All 8 Apps",
+    "ctaCreators": "Watch Creator Series",
+    "portfolioNote": "Looking specifically for my software engineering resume and experience timeline?",
+    "portfolioLink": "Visit portfolio.keshavsingh.in",
+    "snapshotTitle": "Live Across the keshavsingh.in Ecosystem"
+  },
+  "finder": {
+    "eyebrow": "Quick Goal Finder",
+    "title": "What Would You Like to Do Today?",
+    "subtitle": "Jump straight to the right calculator, platform, or technical guide."
+  },
+  "sections": {
+    "toolsEyebrow": "Original Web Utilities",
+    "toolsTitle": "Interactive Tools Built for Creators & Engineers",
+    "toolsSub": "Instant browser calculations backed by open formulas, methodology explanations, and FAQs.",
+    "openAllTools": "Open All Tools",
+    "appsEyebrow": "All Websites & Mobile Apps",
+    "appsTitle": "What Visitors Can Do Across Every Platform",
+    "appsSub": "Each application serves one clear domain on its subdomain while sharing guides and support here.",
+    "compareApps": "Compare All Platforms",
+    "creatorsEyebrow": "Creator & Storytelling Studios",
+    "creatorsTitle": "Original Video Channels & 3D Animated Series",
+    "creatorsSub": "Weekly engineering walkthroughs, daily Panchang & Katha features, and 3D comedy shorts for global & Indian audiences.",
+    "openCreatorHub": "Explore Creator Hub",
+    "guidesEyebrow": "Original Editorial Library",
+    "guidesTitle": "In-Depth Architecture, Policy & Creator Guides",
+    "guidesSub": "Written directly from production codebases, AdSense reviews, and live YouTube workflows.",
+    "browseAllGuides": "Browse All Guides",
+    "plansEyebrow": "Plans, Membership & Collaboration",
+    "plansTitle": "How to Participate, Subscribe & Collaborate",
+    "plansSub": "All public utilities remain free forever alongside verified SSO memberships and community sponsorship.",
+    "viewPlans": "View Plans",
+    "viewRoadmap": "2026–2027 Roadmap",
+    "howToInteract": "How to Interact"
+  },
+  "common": {
+    "launchCalculator": "Launch calculator & guide →",
+    "readGuide": "Read guide",
+    "openApp": "Open app ↗",
+    "visitChannel": "Visit Channel on YouTube ↗",
+    "readArticle": "Read full guide →",
+    "editorialDisclosure": "Editorial & Advertiser Disclosure: Guides and calculators on keshavsingh.in are authored by Keshav Singh from real software systems. Pages may display Google AdSense contextual or personalized ads managed transparently under our Privacy & Cookie Policies."
+  },
+  "footer": {
+    "desc": "Original interactive utilities, creator workbooks, multi-app platform guides, and engineering documentation across the keshavsingh.in ecosystem.",
+    "explore": "Explore Hub",
+    "websites": "Ecosystem Websites",
+    "trust": "Trust & Policies",
+    "portfolioNote": "Personal CV & Engineering Resume hosted separately at"
+  },
+  "pages": {
+    "appsTitle": "All Ecosystem Websites & Applications",
+    "appsLead": "Detailed walkthroughs of every web platform and mobile app under keshavsingh.in, capabilities, tech stack, and privacy standards.",
+    "toolsTitle": "Free Creator, Vedic Calendar & Architecture Tools",
+    "toolsLead": "Browser-side calculators with transparent formulas, worked examples, and FAQs.",
+    "creatorsTitle": "Creator Channels, 3D Comedy & Cultural Storytelling",
+    "creatorsLead": "Official YouTube channels, dual International + Indian 3D workflows inside AnimStudio AI, and searchable episode index.",
+    "guidesTitle": "Engineering, Vedic Astronomy & Creator Playbooks",
+    "guidesLead": "Original long-form articles drawn from building eight interconnected platforms and AdSense/YouTube compliant hubs.",
+    "plansTitle": "Plans, Creator Access & Community Participation",
+    "roadmapTitle": "Public Product Roadmap (2026–2027)",
+    "interactTitle": "How Visitors, Creators & Developers Can Interact",
+    "aboutTitle": "About Keshav Ecosystem Hub (keshavsingh.in)",
+    "contactTitle": "Contact Keshav Singh & Ecosystem Support",
+    "privacyTitle": "Privacy Policy (AdSense, SSO & FamSphere)",
+    "termsTitle": "Terms & Conditions",
+    "cookiesTitle": "Cookie Policy & Preferences",
+    "disclaimerTitle": "General & Calculator Disclaimer",
+    "sitemapTitle": "Complete Site Index",
+    "resumeTitle": "Engineering Resume & Portfolio Redirect"
+  },
+  "items": {
+    "tools": {
+      "youtube-earnings-estimator": {
+        "title": "YouTube Long-Form & Shorts RPM Estimator",
+        "badge": "Creator Finance Calculator",
+        "shortDesc": "Estimate monthly YouTube Partner Program (AdSense for YouTube) earnings across 16:9 videos, vertical Shorts, India vs Tier-1 geographies, and sponsors."
+      },
+      "short-hook-pacing-planner": {
+        "title": "Comedy & 3D Short Scene Pacing Planner",
+        "badge": "AnimStudio Storyboard Tool",
+        "shortDesc": "Time 15s–60s comedy hooks, spoken word rates, multi-character emotions, and export Story Agent JSON for studio.keshavsingh.in."
+      },
+      "panchang-samvat-converter": {
+        "title": "Vikram Samvat & Sunrise-Anchored Kaal Calculator",
+        "badge": "Vedic Calendar Utility",
+        "shortDesc": "Convert Gregorian dates to Vikram Samvat & Shaka Samvat and calculate exact 8-slice daytime Rahu Kaal, Yamaganda, Gulika, and Abhijit windows."
+      },
+      "api-latency-capacity-planner": {
+        "title": "Microservices Latency & Scaling Capacity Planner",
+        "badge": "Backend Architecture Calculator",
+        "shortDesc": "Model database load reduction with Redis caching, gRPC vs JSON REST framing, p95 latency budgets, and container replica counts."
+      }
+    },
+    "apps": {
+      "animstudio": {
+        "name": "AnimStudio AI",
+        "badge": "3D Video & Shorts Studio",
+        "shortTagline": "Multi-track 2D/3D video production studio, Comedy 3D engine, Story Agent, auto backgrounds & YouTube scheduler."
+      },
+      "panchang": {
+        "name": "Hindu Panchang & Sanskriti Hub",
+        "badge": "Daily Panchang & Vedic Calendar",
+        "shortTagline": "Sunrise-accurate Tithi, Nakshatra, Yoga, Karana, city muhurats, Choghadiya & Aaj Ka Itihaas."
+      },
+      "pratiyogita": {
+        "name": "Pratiyogita",
+        "badge": "Exams, Sports & Live Quiz Winners",
+        "shortTagline": "Grassroots school olympiads, local sports fixtures, toppers leaderboard & zero-log YouTube live quiz arena."
+      },
+      "social-analytics": {
+        "name": "SocialPulse Analytics",
+        "badge": "Creator Telemetry & RPM",
+        "shortTagline": "Growth benchmarking, Views-per-Subscriber outliers, RPM estimator & hook retention diagnostics."
+      },
+      "content-blog": {
+        "name": "Engineering Content Blog",
+        "badge": "Technical Knowledge Base",
+        "shortTagline": "Hands-on engineering notes on C#/.NET, Azure, AWS, Docker, Kubernetes, SQL & GoF design patterns."
+      },
+      "ghar-ledger": {
+        "name": "Ghar Ledger",
+        "badge": "Household Vendor Tracker",
+        "shortTagline": "Track daily household vendors—milk, newspaper, maid & tuition—and settle accurate monthly bills."
+      },
+      "famsphere": {
+        "name": "FamSphere Mobile App",
+        "badge": "Android & iOS Family App",
+        "shortTagline": "Expo React Native family companion featuring QR device pairing, step tracking, Image-to-PDF & safety tools."
+      },
+      "portfolio": {
+        "name": "Developer Portfolio & CV",
+        "badge": "Engineering Resume Subdomain",
+        "shortTagline": "Software architecture career history, GitHub repositories & client-side PDF CV on portfolio.keshavsingh.in."
+      }
+    }
+  }
+}

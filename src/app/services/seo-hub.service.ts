@@ -6,6 +6,7 @@ export interface RouteSeoMeta {
   title: string;
   description: string;
   path: string;
+  canonicalPath?: string;
   keywords?: string;
 }
 
@@ -20,7 +21,8 @@ export class SeoHubService {
   ) {}
 
   update(meta: RouteSeoMeta): void {
-    const cleanPath = meta.path.startsWith('/') ? meta.path : `/${meta.path}`;
+    const rawPath = meta.canonicalPath || meta.path;
+    const cleanPath = rawPath.startsWith('/') ? rawPath : `/${rawPath}`;
     const canonicalUrl = `${SITE_ORIGIN}${cleanPath === '/' ? '/' : cleanPath}`;
 
     this.titleService.setTitle(meta.title);

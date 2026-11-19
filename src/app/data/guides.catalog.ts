@@ -286,5 +286,85 @@ export const ENGINEERING_GUIDES: EngineeringGuide[] = [
         ]
       }
     ]
+  },
+  {
+    slug: 'two-channel-comedy-strategy-local-vs-international',
+    title: 'Dual-Channel 3D Comedy Strategy: International Slapstick Loops vs Indian Khadi Bhasha Sitcoms',
+    category: 'Creator & Media',
+    publishedDate: '2026-11-18',
+    updatedDate: '2026-11-18',
+    readMinutes: 9,
+    summary:
+      'Why mixing Hindi regional slang and silent global visual comedy inside one YouTube feed stalls algorithmic reach—and how running separate International and Local 3D comedy pipelines inside AnimStudio AI boosts SEO, watch-through velocity, and brand uniqueness.',
+    takeaways: [
+      'Worldwide viewers bounce immediately when a Short depends heavily on region-specific slang in the first 3 seconds.',
+      'Physical doorway gags, exaggerated cartoon reaction physics, and visual slapstick loops translate cleanly across borders with English metadata.',
+      'Dedicated Indian pipelines thrive on earthy Khadi Bhasha banter, relatable tapri/family setups, and sharp callback punchlines on @KESHAV-ANIM-FF.'
+    ],
+    relatedAppSlug: 'animstudio',
+    relatedToolSlug: 'short-hook-pacing-planner',
+    sections: [
+      {
+        heading: 'Why Language & Visual Pacing Split Algorithm Recommendations',
+        paragraphs: [
+          'Shorts recommendation feeds test every new upload across a small initial audience cluster within the first hour. When the channel mixes English global cartoon loops on Monday and dense regional Hinglish roast skits on Tuesday, viewer satisfaction signals conflict across subscriber cohorts.',
+          'Splitting output intentionally across a dedicated Indian Hinglish storytelling/comedy channel (@KESHAV-ANIM-FF) and an International English / zero-dialogue 3D physical comedy track gives YouTube clean audience graphs, clearer search keyword associations, and stronger recurring series branding (like EP 01, EP 02 numbering).'
+        ]
+      },
+      {
+        heading: 'Designing Original 3D Visual Identity Instead of Generic Reposts',
+        paragraphs: [
+          'YouTube’s monetization and uniqueness standards reward recognizable first-party animation over stitched third-party clips. Inside AnimStudio AI, creators configure stylized 3D procedural characters, custom room/outdoor backgrounds generated from prompt blueprints, subtle camera motion, spatialized comedy SFX (whooshes, spring boings, comic rimshots), and clean frame compositing—ensuring every episode carries genuine creative authorship.',
+          'Our comedy pacing calculator in /tools/short-hook-pacing-planner exports clean JSON storyboards straight into the studio before rendering MP4s and auditing titles/thumbnails pre-schedule.'
+        ],
+        codeOrTable: {
+          caption: 'Dual Comedy Channel Operating Matrix Inside AnimStudio AI',
+          headers: ['Dimension', 'Local / Indian Sitcom Track', 'International Global Track'],
+          rows: [
+            ['Primary Channel Target', '@KESHAV-ANIM-FF', 'Dedicated International / English Channel'],
+            ['Comedy Archetype', 'Desi Khadi Sitcom / Tu-Tadak Banter', 'Global Slapstick Loop / Cartoon Tank Series'],
+            ['Hook Strategy (0–3s)', 'Fast Hinglish accusation or twist line', 'Immediate visual hazard, prop swap, or doorway gag'],
+            ['Sound Design', 'Clean dialogue + comic beat stingers', 'Expressive foley SFX + upbeat BGM bed']
+          ]
+        }
+      }
+    ]
+  },
+  {
+    slug: 'responsive-ssg-web-vitals-adsense-ux',
+    title: 'High-Contrast Typography, Static Prerendering & Core Web Vitals for AdSense Approval',
+    category: 'Architecture',
+    publishedDate: '2026-11-18',
+    updatedDate: '2026-11-18',
+    readMinutes: 8,
+    summary:
+      'How Angular 22 static pre-rendering (outputMode: static), responsive zero-overflow CSS grids, clean dark/light contrast tokens, and bilingual JSON catalogs turn a client SPA into an ultra-fast publisher destination.',
+    takeaways: [
+      'Cumulative Layout Shift (CLS) spikes ruin mobile usability when web fonts, cookie banners, or un-sized containers shift on hydration.',
+      'Pre-rendering every route at build time delivers immediate Largest Contentful Paint (LCP) text to readers on slow mobile connections.',
+      'Maintaining two structured localization files (en.json and hi.json) enables clean bilingual support without fragile DOM duplication.'
+    ],
+    relatedAppSlug: 'content-blog',
+    relatedToolSlug: 'api-latency-capacity-planner',
+    sections: [
+      {
+        heading: 'From Client-Rendered Empty Shell to Instant Static Pre-Render',
+        paragraphs: [
+          'Pure Single Page Applications force mobile visitors and search crawlers to download JavaScript bundles, boot the framework, and invoke remote APIs before a single heading renders on screen. On high-latency cellular networks, First Contentful Paint slows down noticeably and automated reviewers occasionally inspect partially hydrated DOM snapshots.',
+          'Switching our main domain keshavsingh.in to Angular 22 static pre-rendering evaluates every page component once at CI build time and writes real index.html files across 35+ folders (home, apps, calculators, guides, legal disclosures, and bilingual interfaces) while still hydrating smooth interactive controls in the browser.'
+        ]
+      },
+      {
+        heading: 'Practical Responsive & Accessibility Habits That Lift Engagement',
+        paragraphs: [
+          'Clean spacing (max ~75 characters line width inside prose columns), generous tap targets (>= 38–44px on mobile navigation pills), explicit keyboard focus outlines, smooth reduced-motion compliance, and legible contrast in both Light and Dark palettes keep bounce rates low and session durations high—signals valued equally by human readers, search engines, and ad quality systems.'
+        ],
+        bullets: [
+          'Prevent layout shift by keeping sticky header height fixed and positioning consent bars independently over the viewport edge.',
+          'Pair every tool widget with clear methodology documentation and printable readability.',
+          'Serve bilingual English (en) and Hindi (hi) resources cleanly from managed JSON catalogs.'
+        ]
+      }
+    ]
   }
 ];

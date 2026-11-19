@@ -1,6 +1,7 @@
 import { Component, OnInit, computed, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ECOSYSTEM_APPS } from '../../data/apps.catalog';
+import { I18nHubService } from '../../services/i18n-hub.service';
 import { SeoHubService } from '../../services/seo-hub.service';
 
 @Component({
@@ -12,11 +13,11 @@ import { SeoHubService } from '../../services/seo-hub.service';
       <section class="page-header">
         <div class="container">
           <div class="breadcrumb">
-            <a routerLink="/">Home</a> / <a routerLink="/apps">Apps</a> / <span>{{ item.name }}</span>
+            <a routerLink="/">{{ i18n.t('nav.home') }}</a> / <a routerLink="/apps">{{ i18n.t('nav.apps') }}</a> / <span>{{ i18n.t('items.apps.' + item.slug + '.name', item.name) }}</span>
           </div>
-          <span class="eyebrow">{{ item.category }} &middot; {{ item.badge }}</span>
-          <h1>{{ item.name }}</h1>
-          <p class="lead">{{ item.shortTagline }}</p>
+          <span class="eyebrow">{{ item.category }} &middot; {{ i18n.t('items.apps.' + item.slug + '.badge', item.badge) }}</span>
+          <h1>{{ i18n.t('items.apps.' + item.slug + '.name', item.name) }}</h1>
+          <p class="lead">{{ i18n.t('items.apps.' + item.slug + '.shortTagline', item.shortTagline) }}</p>
           <div class="header-actions">
             @if (item.url.startsWith('http')) {
               <a [href]="item.url" target="_blank" rel="noopener noreferrer" class="btn btn-primary">{{ item.ctaLabel }} &#8599;</a>
@@ -94,6 +95,7 @@ import { SeoHubService } from '../../services/seo-hub.service';
 export class AppDetailPageComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly seo = inject(SeoHubService);
+  readonly i18n = inject(I18nHubService);
 
   readonly app = computed(() => {
     const slug = this.route.snapshot.paramMap.get('slug') ?? '';

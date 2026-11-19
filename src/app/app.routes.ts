@@ -8,9 +8,12 @@ import { GuidesPageComponent } from './pages/guides/guides.page';
 import { HomePageComponent } from './pages/home/home.page';
 import {
   CookiePolicyPageComponent,
+  DataDeletionPageComponent,
   DisclaimerPageComponent,
   NotFoundPageComponent,
   PrivacyPolicyPageComponent,
+  ResumeBridgePageComponent,
+  RobotsPageComponent,
   SitemapPageComponent,
   TermsPageComponent,
 } from './pages/legal/legal.page';
@@ -123,11 +126,30 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'privacy',
+    component: PrivacyPolicyPageComponent,
+    data: {
+      title: 'Privacy Policy (AdSense & FamSphere) | keshavsingh.in',
+      description:
+        'Official Privacy Policy for keshavsingh.in and FamSphere Android/iOS mobile app (in.keshavsingh.famsphere).',
+      canonicalPath: '/privacy-policy',
+    },
+  },
+  {
     path: 'terms',
     component: TermsPageComponent,
     data: {
       title: 'Terms & Conditions | keshavsingh.in',
       description: 'Terms governing use of calculators, guides, and connected apps across keshavsingh.in.',
+    },
+  },
+  {
+    path: 'terms-and-conditions',
+    component: TermsPageComponent,
+    data: {
+      title: 'Terms & Conditions | keshavsingh.in',
+      description: 'Terms governing use of calculators, guides, and connected apps across keshavsingh.in.',
+      canonicalPath: '/terms',
     },
   },
   {
@@ -139,6 +161,15 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'cookies',
+    component: CookiePolicyPageComponent,
+    data: {
+      title: 'Cookie Policy & Consent Settings | keshavsingh.in',
+      description: 'Details on essential theme/consent preferences, telemetry, and advertising cookies on keshavsingh.in.',
+      canonicalPath: '/cookie-policy',
+    },
+  },
+  {
     path: 'disclaimer',
     component: DisclaimerPageComponent,
     data: {
@@ -147,11 +178,35 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'data-deletion',
+    component: DataDeletionPageComponent,
+    data: {
+      title: 'Account & Data Deletion Instructions | keshavsingh.in',
+      description: 'How to delete your Central SSO account, FamSphere app records, or Contact Inbox submissions.',
+    },
+  },
+  {
+    path: 'robots',
+    component: RobotsPageComponent,
+    data: {
+      title: 'Robots.txt Directives | keshavsingh.in',
+      description: 'Human-readable view of search crawler access rules on keshavsingh.in.',
+    },
+  },
+  {
     path: 'sitemap',
     component: SitemapPageComponent,
     data: {
       title: 'Sitemap | keshavsingh.in',
       description: 'Directory of all tools, application guides, articles, and legal pages on keshavsingh.in.',
+    },
+  },
+  {
+    path: 'resume',
+    component: ResumeBridgePageComponent,
+    data: {
+      title: 'Engineering Resume & Portfolio Redirect | keshavsingh.in',
+      description: 'Keshav Singh’s engineering CV and PDF resume now live at portfolio.keshavsingh.in.',
     },
   },
   { path: '404', component: NotFoundPageComponent, data: { title: 'Page Not Found | keshavsingh.in', description: 'Route not found.' } },

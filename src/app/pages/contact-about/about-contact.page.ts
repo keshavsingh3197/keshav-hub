@@ -2,6 +2,7 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { EcosystemApiService } from '../../services/ecosystem-api.service';
+import { I18nHubService } from '../../services/i18n-hub.service';
 
 @Component({
   selector: 'app-about-page',
@@ -10,9 +11,9 @@ import { EcosystemApiService } from '../../services/ecosystem-api.service';
   template: `
     <section class="page-header">
       <div class="container">
-        <div class="breadcrumb"><a routerLink="/">Home</a> / <span>About</span></div>
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <span>{{ i18n.t('nav.about') }}</span></div>
         <span class="eyebrow">Founder &amp; Editorial Standards</span>
-        <h1>About Keshav Ecosystem Hub (keshavsingh.in)</h1>
+        <h1>{{ i18n.t('pages.aboutTitle') }}</h1>
         <p class="lead">
           The story, software architecture principles, and content transparency standards behind Keshav Singh’s interconnected web utilities and animation studios.
         </p>
@@ -53,7 +54,9 @@ import { EcosystemApiService } from '../../services/ecosystem-api.service';
     .cta-row { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1.5rem; }
   `,
 })
-export class AboutPageComponent {}
+export class AboutPageComponent {
+  readonly i18n = inject(I18nHubService);
+}
 
 @Component({
   selector: 'app-contact-page',
@@ -62,9 +65,9 @@ export class AboutPageComponent {}
   template: `
     <section class="page-header">
       <div class="container">
-        <div class="breadcrumb"><a routerLink="/">Home</a> / <span>Contact Us</span></div>
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <span>{{ i18n.t('nav.contact') }}</span></div>
         <span class="eyebrow">Direct Inbox &amp; Support</span>
-        <h1>Contact Keshav Singh &amp; Ecosystem Support</h1>
+        <h1>{{ i18n.t('pages.contactTitle') }}</h1>
         <p class="lead">
           Send creator membership requests, Pratiyogita sponsorship inquiries, privacy or data-deletion requests, bug reports, or collaboration messages straight to our encrypted admin inbox.
         </p>
@@ -152,6 +155,7 @@ export class AboutPageComponent {}
 export class ContactPageComponent implements OnInit {
   private readonly api = inject(EcosystemApiService);
   private readonly route = inject(ActivatedRoute);
+  readonly i18n = inject(I18nHubService);
 
   readonly name = signal('');
   readonly email = signal('');

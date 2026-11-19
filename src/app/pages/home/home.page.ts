@@ -1,9 +1,78 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ECOSYSTEM_APPS } from '../../data/apps.catalog';
-import { CREATOR_CHANNELS, MEMBERSHIP_PLANS, ROADMAP_MILESTONES } from '../../data/creators-plans.catalog';
+import { CREATOR_CHANNELS, HUB_TOOLS, MEMBERSHIP_PLANS, ROADMAP_MILESTONES } from '../../data/creators-plans.catalog';
 import { ENGINEERING_GUIDES } from '../../data/guides.catalog';
-import { HUB_TOOLS } from '../../data/creators-plans.catalog';
+import { I18nHubService } from '../../services/i18n-hub.service';
+
+interface QuickGoalOption {
+  id: string;
+  labelEn: string;
+  labelHi: string;
+  summaryEn: string;
+  summaryHi: string;
+  primaryRoute: string;
+  primaryLabelEn: string;
+  primaryLabelHi: string;
+  externalUrl?: string;
+  externalLabelEn?: string;
+  externalLabelHi?: string;
+}
+
+const GOAL_OPTIONS: QuickGoalOption[] = [
+  {
+    id: 'video',
+    labelEn: '🎬 Make 3D Comedy / Story Videos',
+    labelHi: '🎬 ३डी कॉमेडी या कथा वीडियो बनाएँ',
+    summaryEn: 'Estimate Short pacing or launch AnimStudio AI to build automated 3D scenes, voiceovers, backgrounds & YouTube schedules.',
+    summaryHi: 'शॉर्ट वीडियो की गति जांचें या AnimStudio AI में ३डी दृश्य, आवाज़, बैकग्राउंड और यूट्यूब प्रकाशन शुरू करें।',
+    primaryRoute: '/tools/short-hook-pacing-planner',
+    primaryLabelEn: 'Open Short Pacing Planner',
+    primaryLabelHi: 'शॉर्ट पेसिंग प्लानर खोलें',
+    externalUrl: 'https://studio.keshavsingh.in/comedy',
+    externalLabelEn: 'Launch Comedy 3D Studio ↗',
+    externalLabelHi: 'कॉमेडी ३डी स्टूडियो खोलें ↗',
+  },
+  {
+    id: 'panchang',
+    labelEn: '🕉️ Check Panchang & Muhurat',
+    labelHi: '🕉️ पंचांग व शुभ मुहूर्त देखें',
+    summaryEn: 'Convert Vikram/Shaka Samvat & Rahu Kaal intervals directly here or check full sunrise ephemeris on panchang.keshavsingh.in.',
+    summaryHi: 'यहीं विक्रम संवत् और राहुकाल निकालें या panchang.keshavsingh.in पर पूर्ण सूर्योदय पंचांग देखें।',
+    primaryRoute: '/tools/panchang-samvat-converter',
+    primaryLabelEn: 'Open Samvat & Kaal Calculator',
+    primaryLabelHi: 'संवत् व काल कैलकुलेटर खोलें',
+    externalUrl: 'https://panchang.keshavsingh.in',
+    externalLabelEn: 'Open Hindu Panchang ↗',
+    externalLabelHi: 'हिन्दू पंचांग खोलें ↗',
+  },
+  {
+    id: 'engineering',
+    labelEn: '⚙️ Architecture & Cloud Docs',
+    labelHi: '⚙️ आर्किटेक्चर व क्लाउड गाइड्स',
+    summaryEn: 'Model API latency & Redis cache capacity or read production guides covering .NET 10, SSO, Azure & Kubernetes.',
+    summaryHi: 'API लेटेंसी व कैश क्षमता नापें अथवा .NET 10, SSO और Azure पर विस्तृत लेख पढ़ें।',
+    primaryRoute: '/tools/api-latency-capacity-planner',
+    primaryLabelEn: 'Open API Capacity Planner',
+    primaryLabelHi: 'API क्षमता प्लानर खोलें',
+    externalUrl: 'https://blog.keshavsingh.in',
+    externalLabelEn: 'Open Tech Blog ↗',
+    externalLabelHi: 'टेक ब्लॉग खोलें ↗',
+  },
+  {
+    id: 'hiring',
+    labelEn: '💼 Hiring / Engineering Resume',
+    labelHi: '💼 रिज़्यूमे व पोर्टफ़ोलियो',
+    summaryEn: 'Review full software engineering roles, .NET/Cloud credentials, GitHub repos, and downloadable PDF resume on the portfolio subdomain.',
+    summaryHi: 'सॉफ़्टवेयर कार्य-अनुभव, GitHub प्रोजेक्ट और PDF रिज़्यूमे के लिए अलग पोर्टफ़ोलियो सबडोमेन देखें।',
+    primaryRoute: '/apps/portfolio',
+    primaryLabelEn: 'Read Portfolio Summary',
+    primaryLabelHi: 'पोर्टफ़ोलियो विवरण पढ़ें',
+    externalUrl: 'https://portfolio.keshavsingh.in',
+    externalLabelEn: 'Visit portfolio.keshavsingh.in ↗',
+    externalLabelHi: 'portfolio.keshavsingh.in खोलें ↗',
+  },
+];
 
 @Component({
   selector: 'app-home-page',
@@ -13,26 +82,22 @@ import { HUB_TOOLS } from '../../data/creators-plans.catalog';
     <section class="hero-wrap">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">keshavsingh.in &middot; Ecosystem &amp; Creator Hub</span>
-          <h1>Interactive Web Tools, Creator Studios &amp; Original Engineering Guides</h1>
-          <p class="lead">
-            Welcome to the central hub for all digital platforms, animation series, Vedic utilities, and software guides
-            built by Keshav Singh. Use browser calculators with zero sign-in, read deep technical playbooks, explore
-            every connected web app, or connect on live creator events.
-          </p>
+          <span class="eyebrow">{{ i18n.t('hero.eyebrow') }}</span>
+          <h1>{{ i18n.t('hero.title') }}</h1>
+          <p class="lead">{{ i18n.t('hero.lead') }}</p>
           <div class="cta-row">
-            <a routerLink="/tools" class="btn btn-primary">Try Interactive Tools</a>
-            <a routerLink="/apps" class="btn btn-outline">Explore All 8 Apps</a>
-            <a routerLink="/creators" class="btn btn-outline">Watch Creator Series</a>
+            <a routerLink="/tools" class="btn btn-primary">{{ i18n.t('hero.ctaTools') }}</a>
+            <a routerLink="/apps" class="btn btn-outline">{{ i18n.t('hero.ctaApps') }}</a>
+            <a routerLink="/creators" class="btn btn-outline">{{ i18n.t('hero.ctaCreators') }}</a>
           </div>
           <p class="sub-note">
-            Looking specifically for my engineering CV and work history? Visit the dedicated
-            <a href="https://portfolio.keshavsingh.in" target="_blank" rel="noopener noreferrer">portfolio.keshavsingh.in</a>.
+            {{ i18n.t('hero.portfolioNote') }}
+            <a href="https://portfolio.keshavsingh.in" target="_blank" rel="noopener noreferrer">{{ i18n.t('hero.portfolioLink') }}</a>.
           </p>
         </div>
 
         <aside class="card metrics-panel" aria-label="Ecosystem Snapshot">
-          <h2>What Exists Across keshavsingh.in</h2>
+          <h2>{{ i18n.t('hero.snapshotTitle') }}</h2>
           <ul class="stat-list">
             <li>
               <strong>8 Connected Platforms</strong>
@@ -43,15 +108,49 @@ import { HUB_TOOLS } from '../../data/creators-plans.catalog';
               <span>YouTube RPM &amp; YPP Estimator, 3D Short Pacing JSON Planner, Vedic Samvat Kaal Calculator &amp; API Capacity Sizing.</span>
             </li>
             <li>
-              <strong>3 Creator Channels</strong>
+              <strong>3 Creator Channels &amp; Dual Localization (EN / HI)</strong>
               <span>&#64;keshavsinghworld (Tech), &#64;OmkarShivBhakti (Katha/Culture) &amp; &#64;KESHAV-ANIM-FF (3D Comedy).</span>
             </li>
             <li>
-              <strong>Single Identity SSO</strong>
-              <span>Passkey &amp; JWT login on <a href="https://admin.keshavsingh.in" target="_blank" rel="noopener noreferrer">admin.keshavsingh.in</a> powers approved workspaces.</span>
+              <strong>Single Identity SSO &amp; Verified Trust Pages</strong>
+              <span>FIDO2 Passkeys on <a href="https://admin.keshavsingh.in" target="_blank" rel="noopener noreferrer">admin.keshavsingh.in</a> plus AdSense &amp; Play Store compliance.</span>
             </li>
           </ul>
         </aside>
+      </div>
+    </section>
+
+    <section class="section-tight finder-band">
+      <div class="container card">
+        <div class="finder-head">
+          <div>
+            <span class="eyebrow">{{ i18n.t('finder.eyebrow') }}</span>
+            <h2>{{ i18n.t('finder.title') }}</h2>
+            <p class="muted">{{ i18n.t('finder.subtitle') }}</p>
+          </div>
+          <div class="pill-bar" role="tablist" aria-label="Select goal">
+            @for (g of goalOptions; track g.id) {
+              <button type="button" class="pill-btn" [class.active]="activeGoal().id === g.id" (click)="selectedGoalId.set(g.id)">
+                {{ i18n.isHindi() ? g.labelHi : g.labelEn }}
+              </button>
+            }
+          </div>
+        </div>
+        @if (activeGoal(); as g) {
+          <div class="finder-result">
+            <p>{{ i18n.isHindi() ? g.summaryHi : g.summaryEn }}</p>
+            <div class="cta-row-sm">
+              <a [routerLink]="g.primaryRoute" class="btn btn-primary btn-sm">
+                {{ i18n.isHindi() ? g.primaryLabelHi : g.primaryLabelEn }}
+              </a>
+              @if (g.externalUrl) {
+                <a [href]="g.externalUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                  {{ i18n.isHindi() ? g.externalLabelHi : g.externalLabelEn }}
+                </a>
+              }
+            </div>
+          </div>
+        }
       </div>
     </section>
 
@@ -59,20 +158,20 @@ import { HUB_TOOLS } from '../../data/creators-plans.catalog';
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Original Web Utilities</span>
-            <h2>Interactive Tools Built for Creators &amp; Engineers</h2>
-            <p class="muted">Run instant client-side calculations alongside step-by-step formulas and policy notes.</p>
+            <span class="eyebrow">{{ i18n.t('sections.toolsEyebrow') }}</span>
+            <h2>{{ i18n.t('sections.toolsTitle') }}</h2>
+            <p class="muted">{{ i18n.t('sections.toolsSub') }}</p>
           </div>
-          <a routerLink="/tools" class="btn btn-outline btn-sm">Open All Tools</a>
+          <a routerLink="/tools" class="btn btn-outline btn-sm">{{ i18n.t('sections.openAllTools') }}</a>
         </div>
 
         <div class="grid-2">
           @for (tool of tools; track tool.slug) {
             <article class="card card-interactive tool-card">
-              <span class="badge badge-accent">{{ tool.badge }}</span>
-              <h3><a [routerLink]="['/tools', tool.slug]">{{ tool.title }}</a></h3>
-              <p class="muted">{{ tool.shortDesc }}</p>
-              <a [routerLink]="['/tools', tool.slug]" class="card-link">Launch calculator &amp; guide &rarr;</a>
+              <span class="badge badge-accent">{{ i18n.t('items.tools.' + tool.slug + '.badge', tool.badge) }}</span>
+              <h3><a [routerLink]="['/tools', tool.slug]">{{ i18n.t('items.tools.' + tool.slug + '.title', tool.title) }}</a></h3>
+              <p class="muted">{{ i18n.t('items.tools.' + tool.slug + '.shortDesc', tool.shortDesc) }}</p>
+              <a [routerLink]="['/tools', tool.slug]" class="card-link">{{ i18n.t('common.launchCalculator') }}</a>
             </article>
           }
         </div>
@@ -83,23 +182,23 @@ import { HUB_TOOLS } from '../../data/creators-plans.catalog';
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="eyebrow">All Websites &amp; Mobile Apps</span>
-            <h2>What Visitors Can Do Across Every Platform</h2>
-            <p class="muted">Each product below runs independently on its specialized subdomain while sharing documentation and support here.</p>
+            <span class="eyebrow">{{ i18n.t('sections.appsEyebrow') }}</span>
+            <h2>{{ i18n.t('sections.appsTitle') }}</h2>
+            <p class="muted">{{ i18n.t('sections.appsSub') }}</p>
           </div>
-          <a routerLink="/apps" class="btn btn-outline btn-sm">Compare All Platforms</a>
+          <a routerLink="/apps" class="btn btn-outline btn-sm">{{ i18n.t('sections.compareApps') }}</a>
         </div>
 
         <div class="grid-4">
           @for (app of apps; track app.slug) {
             <article class="card card-interactive app-mini">
-              <span class="badge">{{ app.badge }}</span>
-              <h3><a [routerLink]="['/apps', app.slug]">{{ app.name }}</a></h3>
-              <p class="muted small-copy">{{ app.shortTagline }}</p>
+              <span class="badge">{{ i18n.t('items.apps.' + app.slug + '.badge', app.badge) }}</span>
+              <h3><a [routerLink]="['/apps', app.slug]">{{ i18n.t('items.apps.' + app.slug + '.name', app.name) }}</a></h3>
+              <p class="muted small-copy">{{ i18n.t('items.apps.' + app.slug + '.shortTagline', app.shortTagline) }}</p>
               <div class="mini-actions">
-                <a [routerLink]="['/apps', app.slug]">Read guide</a>
+                <a [routerLink]="['/apps', app.slug]">{{ i18n.t('common.readGuide') }}</a>
                 @if (app.url.startsWith('http')) {
-                  <a [href]="app.url" target="_blank" rel="noopener noreferrer">Open app &#8599;</a>
+                  <a [href]="app.url" target="_blank" rel="noopener noreferrer">{{ i18n.t('common.openApp') }}</a>
                 }
               </div>
             </article>
@@ -112,11 +211,11 @@ import { HUB_TOOLS } from '../../data/creators-plans.catalog';
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Creator &amp; Storytelling Studios</span>
-            <h2>Original Video Channels &amp; Animated Series</h2>
-            <p class="muted">Weekly engineering walkthroughs, daily Panchang &amp; Katha features, and 3D cartoon comedy shorts.</p>
+            <span class="eyebrow">{{ i18n.t('sections.creatorsEyebrow') }}</span>
+            <h2>{{ i18n.t('sections.creatorsTitle') }}</h2>
+            <p class="muted">{{ i18n.t('sections.creatorsSub') }}</p>
           </div>
-          <a routerLink="/creators" class="btn btn-outline btn-sm">Explore Creator Hub</a>
+          <a routerLink="/creators" class="btn btn-outline btn-sm">{{ i18n.t('sections.openCreatorHub') }}</a>
         </div>
 
         <div class="grid-3">
@@ -130,7 +229,7 @@ import { HUB_TOOLS } from '../../data/creators-plans.catalog';
                   <li>{{ item }}</li>
                 }
               </ul>
-              <a [href]="ch.url" target="_blank" rel="noopener noreferrer" class="card-link">Visit Channel on YouTube &#8599;</a>
+              <a [href]="ch.url" target="_blank" rel="noopener noreferrer" class="card-link">{{ i18n.t('common.visitChannel') }}</a>
             </article>
           }
         </div>
@@ -141,23 +240,23 @@ import { HUB_TOOLS } from '../../data/creators-plans.catalog';
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Original Long-Form Library</span>
-            <h2>Latest Architecture &amp; Creator Guides</h2>
-            <p class="muted">Practical engineering deep dives written from production codebases and channel operations.</p>
+            <span class="eyebrow">{{ i18n.t('sections.guidesEyebrow') }}</span>
+            <h2>{{ i18n.t('sections.guidesTitle') }}</h2>
+            <p class="muted">{{ i18n.t('sections.guidesSub') }}</p>
           </div>
-          <a routerLink="/guides" class="btn btn-outline btn-sm">Browse All {{ guides.length }} Guides</a>
+          <a routerLink="/guides" class="btn btn-outline btn-sm">{{ i18n.t('sections.browseAllGuides') }} ({{ guides.length }})</a>
         </div>
 
-        <div class="grid-3">
+        <div class="grid-2">
           @for (guide of guides; track guide.slug) {
             <article class="card card-interactive">
               <div class="guide-meta-top">
                 <span class="badge">{{ guide.category }}</span>
-                <span class="muted tiny">{{ guide.readMinutes }} min read</span>
+                <span class="muted tiny">{{ guide.readMinutes }} min read &middot; {{ guide.updatedDate }}</span>
               </div>
               <h3><a [routerLink]="['/guides', guide.slug]">{{ guide.title }}</a></h3>
               <p class="muted small-copy">{{ guide.summary }}</p>
-              <a [routerLink]="['/guides', guide.slug]" class="card-link">Read full guide &rarr;</a>
+              <a [routerLink]="['/guides', guide.slug]" class="card-link">{{ i18n.t('common.readArticle') }}</a>
             </article>
           }
         </div>
@@ -168,13 +267,13 @@ import { HUB_TOOLS } from '../../data/creators-plans.catalog';
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Plans, Membership &amp; Collaboration</span>
-            <h2>How to Participate, Subscribe &amp; Shape New Features</h2>
-            <p class="muted">Free community access for every visitor, plus SSO member accounts and transparent sponsorship paths.</p>
+            <span class="eyebrow">{{ i18n.t('sections.plansEyebrow') }}</span>
+            <h2>{{ i18n.t('sections.plansTitle') }}</h2>
+            <p class="muted">{{ i18n.t('sections.plansSub') }}</p>
           </div>
           <div class="cta-row-sm">
-            <a routerLink="/plans" class="btn btn-primary btn-sm">View Plans</a>
-            <a routerLink="/roadmap" class="btn btn-outline btn-sm">2026–2027 Roadmap</a>
+            <a routerLink="/plans" class="btn btn-primary btn-sm">{{ i18n.t('sections.viewPlans') }}</a>
+            <a routerLink="/roadmap" class="btn btn-outline btn-sm">{{ i18n.t('sections.viewRoadmap') }}</a>
           </div>
         </div>
 
@@ -195,18 +294,25 @@ import { HUB_TOOLS } from '../../data/creators-plans.catalog';
             <strong>Upcoming Focus ({{ roadmap[2].quarter }}):</strong>
             {{ roadmap[2].title }} &mdash; {{ roadmap[2].details }}
           </div>
-          <a routerLink="/interact" class="btn btn-outline btn-sm">How to Interact</a>
+          <a routerLink="/interact" class="btn btn-outline btn-sm">{{ i18n.t('sections.howToInteract') }}</a>
         </div>
+
+        <p class="disclosure-note">{{ i18n.t('common.editorialDisclosure') }}</p>
       </div>
     </section>
   `,
   styles: `
-    .hero-wrap { padding-block: 3.25rem; background: var(--surface); border-bottom: 1px solid var(--border-soft); }
+    .hero-wrap { padding-block: 3.25rem; background: radial-gradient(circle at top right, var(--primary-soft), transparent 45%), var(--surface); border-bottom: 1px solid var(--border-soft); }
     .hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 2rem; align-items: start; }
-    .hero-copy h1 { margin: 0.75rem 0 0.85rem; font-size: clamp(1.9rem, 3.6vw, 2.75rem); line-height: 1.15; letter-spacing: -0.025em; }
+    .hero-copy h1 { margin: 0.75rem 0 0.85rem; font-size: clamp(1.85rem, 3.6vw, 2.75rem); line-height: 1.15; letter-spacing: -0.025em; }
     .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.4rem; }
     .cta-row-sm { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .sub-note { margin-top: 1rem; font-size: 0.9rem; color: var(--text-subtle); }
+    .finder-band { background: var(--bg); }
+    .finder-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    .finder-head h2 { margin: 0.45rem 0 0.25rem; font-size: 1.35rem; }
+    .finder-result { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; padding-top: 0.9rem; border-top: 1px solid var(--border-soft); }
+    .finder-result p { margin: 0; max-width: 66ch; color: var(--text-muted); }
     .metrics-panel h2 { margin-top: 0; font-size: 1.15rem; margin-bottom: 0.85rem; }
     .stat-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.85rem; }
     .stat-list li { display: flex; flex-direction: column; gap: 0.18rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-soft); }
@@ -226,14 +332,22 @@ import { HUB_TOOLS } from '../../data/creators-plans.catalog';
     .price-text { font-weight: 700; color: var(--primary); margin: 0.35rem 0; }
     .plan-highlight { border-color: var(--primary); }
     .roadmap-strip { margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .disclosure-note { margin-top: 1.25rem; font-size: 0.82rem; color: var(--text-subtle); }
     @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
   `,
 })
 export class HomePageComponent {
+  readonly i18n = inject(I18nHubService);
   readonly apps = ECOSYSTEM_APPS;
   readonly tools = HUB_TOOLS;
   readonly channels = CREATOR_CHANNELS;
   readonly guides = ENGINEERING_GUIDES;
   readonly plans = MEMBERSHIP_PLANS;
   readonly roadmap = ROADMAP_MILESTONES;
+
+  readonly goalOptions = GOAL_OPTIONS;
+  readonly selectedGoalId = signal<string>(GOAL_OPTIONS[0].id);
+  activeGoal(): QuickGoalOption {
+    return GOAL_OPTIONS.find((g) => g.id === this.selectedGoalId()) ?? GOAL_OPTIONS[0];
+  }
 }

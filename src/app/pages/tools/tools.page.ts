@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HUB_TOOLS } from '../../data/creators-plans.catalog';
+import { I18nHubService } from '../../services/i18n-hub.service';
 
 @Component({
   selector: 'app-tools-page',
@@ -9,12 +10,10 @@ import { HUB_TOOLS } from '../../data/creators-plans.catalog';
   template: `
     <section class="page-header">
       <div class="container">
-        <div class="breadcrumb"><a routerLink="/">Home</a> / <span>Interactive Tools</span></div>
-        <span class="eyebrow">Browser Utilities &amp; Calculators</span>
-        <h1>Free Creator, Vedic Calendar &amp; Architecture Tools</h1>
-        <p class="lead">
-          Every calculator runs deterministically in your browser with zero login barriers—accompanied by full mathematical formulas, edge-case documentation, and ecosystem links.
-        </p>
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home', 'Home') }}</a> / <span>{{ i18n.t('nav.tools', 'Tools') }}</span></div>
+        <span class="eyebrow">{{ i18n.t('sections.toolsEyebrow') }}</span>
+        <h1>{{ i18n.t('pages.toolsTitle') }}</h1>
+        <p class="lead">{{ i18n.t('pages.toolsLead') }}</p>
       </div>
     </section>
 
@@ -23,12 +22,12 @@ import { HUB_TOOLS } from '../../data/creators-plans.catalog';
         <div class="grid-2">
           @for (tool of tools; track tool.slug) {
             <article class="card card-interactive tool-item">
-              <span class="badge badge-accent">{{ tool.badge }}</span>
-              <h2><a [routerLink]="['/tools', tool.slug]">{{ tool.title }}</a></h2>
-              <p class="muted">{{ tool.shortDesc }}</p>
+              <span class="badge badge-accent">{{ i18n.t('items.tools.' + tool.slug + '.badge', tool.badge) }}</span>
+              <h2><a [routerLink]="['/tools', tool.slug]">{{ i18n.t('items.tools.' + tool.slug + '.title', tool.title) }}</a></h2>
+              <p class="muted">{{ i18n.t('items.tools.' + tool.slug + '.shortDesc', tool.shortDesc) }}</p>
               <h3>Why Use This Tool</h3>
               <p class="small-copy muted">{{ tool.whyUseful }}</p>
-              <a [routerLink]="['/tools', tool.slug]" class="btn btn-primary btn-sm">Open Calculator &amp; Guide &rarr;</a>
+              <a [routerLink]="['/tools', tool.slug]" class="btn btn-primary btn-sm">{{ i18n.t('common.launchCalculator') }}</a>
             </article>
           }
         </div>
@@ -43,5 +42,6 @@ import { HUB_TOOLS } from '../../data/creators-plans.catalog';
   `,
 })
 export class ToolsPageComponent {
+  readonly i18n = inject(I18nHubService);
   readonly tools = HUB_TOOLS;
 }
