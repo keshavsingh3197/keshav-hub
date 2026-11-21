@@ -4,6 +4,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HUB_TOOLS } from '../../data/creators-plans.catalog';
 import { I18nHubService } from '../../services/i18n-hub.service';
 import { SeoHubService } from '../../services/seo-hub.service';
+import { toolSchema } from '../../services/structured-data';
 import {
   GeoTier,
   NicheTier,
@@ -438,6 +439,8 @@ export class ToolDetailPageComponent implements OnInit {
         title: `${item.title} | Free Interactive Tool — keshavsingh.in`,
         description: item.shortDesc,
         path: `/tools/${item.slug}`,
+        crumbName: item.title,
+        schema: toolSchema(item),
       });
     }
   }

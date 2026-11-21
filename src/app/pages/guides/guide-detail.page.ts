@@ -4,6 +4,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ENGINEERING_GUIDES } from '../../data/guides.catalog';
 import { I18nHubService } from '../../services/i18n-hub.service';
 import { SeoHubService } from '../../services/seo-hub.service';
+import { guideSchema } from '../../services/structured-data';
 
 @Component({
   selector: 'app-guide-detail-page',
@@ -136,7 +137,8 @@ import { SeoHubService } from '../../services/seo-hub.service';
     .author-box { margin-top: 2rem; }
     .author-box h3 { margin-top: 0; }
     .cta-row { display: flex; flex-wrap: wrap; gap: 0.65rem; }
-    @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .toc-rail { position: static; } }
+    .article-layout pre { overflow-x: auto; max-width: 100%; }
+    @media (max-width: 900px) { .article-layout { grid-template-columns: minmax(0, 1fr); } .toc-rail { position: static; } }
   `,
 })
 export class GuideDetailPageComponent implements OnInit {
@@ -183,6 +185,9 @@ export class GuideDetailPageComponent implements OnInit {
         title: `${g.title} | keshavsingh.in`,
         description: g.summary,
         path: `/guides/${g.slug}`,
+        ogType: 'article',
+        crumbName: g.title,
+        schema: guideSchema(g),
       });
     }
   }

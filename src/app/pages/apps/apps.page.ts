@@ -2,14 +2,16 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { ECOSYSTEM_APPS, EcosystemAppDetail } from '../../data/apps.catalog';
+import { APP_VISUALS, VisualIdentity, gradientOf, visualOf } from '../../data/visuals';
 import { I18nHubService } from '../../services/i18n-hub.service';
+import { IconComponent } from '../../ui/icon.component';
 
 type CategoryFilter = 'All' | EcosystemAppDetail['category'];
 
 @Component({
   selector: 'app-apps-page',
   standalone: true,
-  imports: [RouterLink, FormsModule],
+  imports: [RouterLink, FormsModule, IconComponent],
   template: `
     <section class="page-header">
       <div class="container">
@@ -44,28 +46,24 @@ type CategoryFilter = 'All' | EcosystemAppDetail['category'];
 
         <div class="grid-2 apps-list">
           @for (app of filteredApps(); track app.slug) {
-            <article class="card app-card">
+            <article class="card card-interactive app-card">
               <div class="app-top">
-                <span class="badge badge-accent">{{ app.category }}</span>
-                <span class="badge">{{ app.badge }}</span>
+                <span class="icon-chip" [style.background]="gradient(visual(app.slug))"><app-icon [name]="visual(app.slug).icon" [size]="22" /></span>
+                <div>
+                  <h2><a [routerLink]="['/apps', app.slug]">{{ i18n.t('items.apps.' + app.slug + '.name', app.name) }}</a></h2>
+                  <span class="badge badge-accent">{{ app.category }}</span>
+                </div>
               </div>
-              <h2><a [routerLink]="['/apps', app.slug]">{{ app.name }}</a></h2>
-              <p class="muted">{{ app.summary }}</p>
-              <h3>Key Capabilities</h3>
-              <ul class="cap-list">
-                @for (cap of app.capabilities.slice(0, 3); track cap) {
-                  <li>{{ cap }}</li>
-                }
-              </ul>
+              <p class="muted clamp-2">{{ i18n.t('items.apps.' + app.slug + '.shortTagline', app.shortTagline) }}</p>
               <div class="stack-row">
                 @for (tech of app.architectureStack.slice(0, 3); track tech) {
                   <span class="badge">{{ tech }}</span>
                 }
               </div>
               <div class="app-actions">
-                <a [routerLink]="['/apps', app.slug]" class="btn btn-primary btn-sm">Full Walkthrough &amp; FAQ</a>
+                <a [routerLink]="['/apps', app.slug]" class="btn btn-primary btn-sm">{{ i18n.t('common.learnMore') }}</a>
                 @if (app.url.startsWith('http')) {
-                  <a [href]="app.url" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">{{ app.ctaLabel }} &#8599;</a>
+                  <a [href]="app.url" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">{{ i18n.t('common.open') }} <app-icon name="external" [size]="14" /></a>
                 }
               </div>
             </article>
@@ -92,17 +90,21 @@ type CategoryFilter = 'All' | EcosystemAppDetail['category'];
     .controls-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
     .search-box { min-width: 260px; flex: 0 1 340px; }
     .apps-list { margin-bottom: 2rem; }
-    .app-card h2 { margin: 0.65rem 0 0.45rem; font-size: 1.3rem; }
-    .app-card h3 { font-size: 0.95rem; margin: 1rem 0 0.45rem; }
-    .app-top { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .app-card { display: flex; flex-direction: column; gap: 0.85rem; }
+    .app-card h2 { margin: 0 0 0.3rem; font-size: 1.15rem; }
+    .app-card h2 a { color: var(--text); }
+    .app-top { display: flex; gap: 0.85rem; align-items: center; }
     .muted { color: var(--text-muted); margin: 0; }
-    .cap-list { margin: 0 0 1rem; padding-left: 1.2rem; color: var(--text-muted); font-size: 0.92rem; }
-    .stack-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+    .stack-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
     .app-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
   `,
 })
 export class AppsPageComponent {
   readonly i18n = inject(I18nHubService);
+  readonly gradient = gradientOf;
+  visual(slug: string): VisualIdentity {
+    return visualOf(APP_VISUALS, slug);
+  }
   readonly categories: CategoryFilter[] = [
     'All',
     'Creator & Media',

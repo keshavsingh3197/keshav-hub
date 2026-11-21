@@ -3,28 +3,62 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Keshav Ecosystem Hub — Creator Studio, Interactive Tools &amp; Web Platforms</title>
-  <meta name="description" content="Official creator hub for keshavsingh.in: interactive YouTube and Panchang calculators, 3D animation showcase, original engineering guides, platform walkthroughs, and community plans.">
+  <title>keshavsingh.in — Free Creator Tools, Apps &amp; Guides by Keshav Singh</title>
+  <meta name="description" content="One home for Keshav Singh's apps, free creator and Panchang calculators, 3D animation channels and original engineering guides — in English and Hindi.">
   <meta name="author" content="Keshav Singh">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="theme-color" content="#1d4ed8">
+  <meta name="theme-color" content="#1d4ed8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0f1e" media="(prefers-color-scheme: dark)">
+  <meta name="format-detection" content="telephone=no">
 
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Keshav Ecosystem Hub">
-  <meta property="og:title" content="Keshav Ecosystem Hub — Creator Studio, Interactive Tools &amp; Web Platforms">
-  <meta property="og:description" content="Explore web tools, 3D animation series, Vedic astronomy calculators, engineering guides, and connected apps across keshavsingh.in.">
+  <meta property="og:site_name" content="keshavsingh.in">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:locale:alternate" content="hi_IN">
+  <meta property="og:title" content="keshavsingh.in — Free Creator Tools, Apps &amp; Guides">
+  <meta property="og:description" content="Apps, free calculators, 3D animation channels and engineering guides by Keshav Singh.">
   <meta property="og:url" content="https://keshavsingh.in/">
-  <meta property="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://keshavsingh.in/assets/k.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="keshavsingh.in logo">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://keshavsingh.in/assets/k.png">
 
   <base href="/">
-  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="assets/k.png">
   <link rel="apple-touch-icon" href="assets/k.png">
   <link rel="canonical" href="https://keshavsingh.in/">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://id.keshavsingh.in">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script>
+    // Runs before first paint: apply saved/OS theme (no flash) and honour a saved
+    // "Essential only" consent by requesting non-personalised ads before AdSense loads.
+    (function () {
+      var d = document.documentElement;
+      try {
+        var t = localStorage.getItem('ks_hub_theme');
+        if (t !== 'dark' && t !== 'light') {
+          t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        d.setAttribute('data-theme', t);
+        var lang = localStorage.getItem('ks_hub_lang');
+        if (lang === 'hi' || lang === 'en') d.setAttribute('lang', lang);
+        var c = localStorage.getItem('ks_hub_consent');
+        window.adsbygoogle = window.adsbygoogle || [];
+        window.adsbygoogle.requestNonPersonalizedAds = c === 'accepted' ? 0 : 1;
+      } catch (e) {
+        window.adsbygoogle = window.adsbygoogle || [];
+        window.adsbygoogle.requestNonPersonalizedAds = 1;
+      }
+    })();
+  </script>
 
   <meta name="google-adsense-account" content="ca-pub-7890828429175364">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7890828429175364" crossorigin="anonymous"></script>
@@ -37,25 +71,32 @@
         "@type": "WebSite",
         "@id": "https://keshavsingh.in/#website",
         "url": "https://keshavsingh.in/",
-        "name": "Keshav Ecosystem Hub",
-        "description": "Original interactive tools, creator showcase, platform documentation, and engineering guides for the keshavsingh.in ecosystem.",
-        "publisher": { "@id": "https://keshavsingh.in/#person" },
-        "inLanguage": "en"
+        "name": "keshavsingh.in",
+        "alternateName": ["Keshav Hub", "Keshav Ecosystem Hub"],
+        "description": "Apps, free creator and Panchang calculators, 3D animation channels and engineering guides by Keshav Singh.",
+        "publisher": { "@id": "https://keshavsingh.in/#org" },
+        "inLanguage": ["en", "hi"]
       },
       {
         "@type": "Organization",
         "@id": "https://keshavsingh.in/#org",
         "name": "Keshav Singh Digital Ecosystem",
         "url": "https://keshavsingh.in/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://keshavsingh.in/assets/k.png"
+        "logo": { "@type": "ImageObject", "url": "https://keshavsingh.in/assets/k.png", "width": 512, "height": 512 },
+        "founder": { "@id": "https://keshavsingh.in/#person" },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "keshavsingh4522@gmail.com",
+          "url": "https://keshavsingh.in/contact",
+          "availableLanguage": ["English", "Hindi"]
         },
         "sameAs": [
           "https://www.youtube.com/@keshavsinghworld",
           "https://www.youtube.com/@OmkarShivBhakti",
           "https://www.youtube.com/@KESHAV-ANIM-FF",
           "https://github.com/keshavsingh3197",
+          "https://www.linkedin.com/in/keshavsingh3197/",
           "https://portfolio.keshavsingh.in/"
         ]
       },
@@ -63,22 +104,22 @@
         "@type": "Person",
         "@id": "https://keshavsingh.in/#person",
         "name": "Keshav Singh",
-        "url": "https://portfolio.keshavsingh.in/",
-        "jobTitle": "Software Architect & Digital Creator"
+        "url": "https://keshavsingh.in/about",
+        "jobTitle": "Software Architect & Digital Creator",
+        "sameAs": [
+          "https://portfolio.keshavsingh.in/",
+          "https://github.com/keshavsingh3197",
+          "https://www.linkedin.com/in/keshavsingh3197/"
+        ]
       }
     ]
   }
   </script>
 </head>
 <body>
-  <script>
-    try {
-      var savedTheme = localStorage.getItem('ks_hub_theme');
-      if (savedTheme === 'dark' || savedTheme === 'light') {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-      }
-    } catch (e) {}
-  </script>
+  <noscript>
+    <p style="padding:1rem;font-family:sans-serif">Search and calculators need JavaScript; every page's content is still readable below.</p>
+  </noscript>
   <app-root></app-root>
 </body>
 </html>

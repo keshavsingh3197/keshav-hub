@@ -1,14 +1,16 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ENGINEERING_GUIDES, EngineeringGuide } from '../../data/guides.catalog';
+import { GUIDE_CATEGORY_VISUALS, VisualIdentity, gradientOf, visualOf } from '../../data/visuals';
 import { I18nHubService } from '../../services/i18n-hub.service';
+import { IconComponent } from '../../ui/icon.component';
 
 type GuideCatFilter = 'All' | EngineeringGuide['category'];
 
 @Component({
   selector: 'app-guides-page',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, IconComponent],
   template: `
     <section class="page-header">
       <div class="container">
@@ -31,21 +33,16 @@ type GuideCatFilter = 'All' | EngineeringGuide['category'];
 
         <div class="grid-2 guides-grid">
           @for (g of filteredGuides(); track g.slug) {
-            <article class="card card-interactive guide-card">
+            <a [routerLink]="['/guides', g.slug]" class="card card-interactive tile guide-card">
               <div class="meta-top">
+                <span class="icon-chip sm" [style.background]="gradient(visual(g.category))"><app-icon [name]="visual(g.category).icon" [size]="17" /></span>
                 <span class="badge badge-accent">{{ g.category }}</span>
-                <span class="muted tiny">Updated {{ g.updatedDate }} &middot; {{ g.readMinutes }} min read</span>
+                <span class="muted tiny"><app-icon name="clock" [size]="13" /> {{ g.readMinutes }} {{ i18n.t('common.minRead') }}</span>
               </div>
-              <h2><a [routerLink]="['/guides', g.slug]">{{ g.title }}</a></h2>
-              <p class="muted">{{ g.summary }}</p>
-              <h3>Key Takeaways</h3>
-              <ul>
-                @for (t of g.takeaways; track t) {
-                  <li>{{ t }}</li>
-                }
-              </ul>
-              <a [routerLink]="['/guides', g.slug]" class="btn btn-primary btn-sm">Read Full Article &rarr;</a>
-            </article>
+              <h2>{{ g.title }}</h2>
+              <p class="clamp-2">{{ g.summary }}</p>
+              <span class="tile-go">{{ i18n.t('common.readArticle') }}</span>
+            </a>
           }
         </div>
       </div>
@@ -53,16 +50,18 @@ type GuideCatFilter = 'All' | EngineeringGuide['category'];
   `,
   styles: `
     .filter-row { margin-bottom: 1.5rem; }
-    .meta-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .meta-top { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
     .muted { color: var(--text-muted); }
-    .tiny { font-size: 0.8rem; }
-    .guide-card h2 { margin: 0.35rem 0 0.55rem; font-size: 1.25rem; }
-    .guide-card h3 { margin: 0.85rem 0 0.35rem; font-size: 0.92rem; }
-    .guide-card ul { padding-left: 1.2rem; margin-bottom: 1.1rem; color: var(--text-muted); font-size: 0.9rem; }
+    .tiny { font-size: 0.8rem; display: inline-flex; align-items: center; gap: 0.25rem; margin-left: auto; }
+    .guide-card h2 { margin: 0; font-size: 1.15rem; line-height: 1.35; }
   `,
 })
 export class GuidesPageComponent {
   readonly i18n = inject(I18nHubService);
+  readonly gradient = gradientOf;
+  visual(category: string): VisualIdentity {
+    return visualOf(GUIDE_CATEGORY_VISUALS, category);
+  }
   readonly categories: GuideCatFilter[] = [
     'All',
     'Architecture',
