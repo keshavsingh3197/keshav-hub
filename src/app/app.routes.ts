@@ -14,6 +14,7 @@ import {
   PrivacyPolicyPageComponent,
   ResumeBridgePageComponent,
   RobotsPageComponent,
+  SecurityPageComponent,
   SitemapPageComponent,
   TermsPageComponent,
 } from './pages/legal/legal.page';
@@ -27,9 +28,9 @@ export const routes: Routes = [
     component: HomePageComponent,
     pathMatch: 'full',
     data: {
-      title: 'Keshav Ecosystem Hub — Interactive Web Tools, Creator Studios & Platform Guides',
+      title: 'Keshav Singh — Free Creator Tools, Apps & Guides | keshavsingh.in',
       description:
-        'Main creator and software ecosystem hub on keshavsingh.in: free calculators, AnimStudio AI & Panchang walkthroughs, YouTube creator work, original guides, and plans.',
+        'Free YouTube RPM and Panchang calculators, 8 connected apps, 3D animation channels and engineering guides by Keshav Singh — in English and Hindi.',
     },
   },
   {
@@ -170,6 +171,15 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'security',
+    component: SecurityPageComponent,
+    data: {
+      title: 'Security & Responsible Disclosure | keshavsingh.in',
+      description:
+        'How keshavsingh.in protects accounts with passkeys, HttpOnly sessions and TLS — and how to report a security vulnerability responsibly.',
+    },
+  },
+  {
     path: 'disclaimer',
     component: DisclaimerPageComponent,
     data: {
@@ -191,6 +201,7 @@ export const routes: Routes = [
     data: {
       title: 'Robots.txt Directives | keshavsingh.in',
       description: 'Human-readable view of search crawler access rules on keshavsingh.in.',
+      noindex: true,
     },
   },
   {
@@ -209,6 +220,6 @@ export const routes: Routes = [
       description: 'Keshav Singh’s engineering CV and PDF resume now live at portfolio.keshavsingh.in.',
     },
   },
-  { path: '404', component: NotFoundPageComponent, data: { title: 'Page Not Found | keshavsingh.in', description: 'Route not found.' } },
-  { path: '**', component: NotFoundPageComponent, data: { title: 'Page Not Found | keshavsingh.in', description: 'Route not found.' } },
+  { path: '404', component: NotFoundPageComponent, data: { title: 'Page Not Found | keshavsingh.in', description: 'Route not found.', noindex: true } },
+  { path: '**', component: NotFoundPageComponent, data: { title: 'Page Not Found | keshavsingh.in', description: 'Route not found.', noindex: true } },
 ];

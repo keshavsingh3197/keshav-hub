@@ -1,26 +1,73 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ECOSYSTEM_APPS } from '../../data/apps.catalog';
 import { ENGINEERING_GUIDES } from '../../data/guides.catalog';
 import { HUB_TOOLS } from '../../data/creators-plans.catalog';
+import { ConsentChoice, ConsentService } from '../../services/consent.service';
 import { I18nHubService } from '../../services/i18n-hub.service';
+import { IconComponent, IconName } from '../../ui/icon.component';
+
+interface GlanceItem {
+  icon: IconName;
+  title: string;
+  text: string;
+}
+
+const PRIVACY_GLANCE: GlanceItem[] = [
+  { icon: 'shield', title: 'Never sold', text: 'Your personal data is never sold or rented.' },
+  { icon: 'cookie', title: 'Opt-in analytics', text: 'Visits are counted only after you accept.' },
+  { icon: 'lock', title: 'Encrypted', text: 'HTTPS in transit, encrypted at rest.' },
+  { icon: 'file', title: 'Delete anytime', text: 'Ask once and we erase it.' },
+];
+
+const SECURITY_GLANCE: GlanceItem[] = [
+  { icon: 'lock', title: 'TLS everywhere', text: 'HTTPS only, TLS 1.2+ on every subdomain.' },
+  { icon: 'user', title: 'Passkeys & SSO', text: 'FIDO2 passkeys, one central identity server.' },
+  { icon: 'shield', title: 'HttpOnly sessions', text: 'Refresh tokens never reachable by scripts.' },
+  { icon: 'server', title: 'Least data', text: 'Encrypted at rest, minimal retention.' },
+];
+
+@Component({
+  selector: 'app-glance',
+  standalone: true,
+  imports: [IconComponent],
+  template: `
+    <div class="glance">
+      @for (g of items(); track g.title) {
+        <div class="glance-item">
+          <span class="icon-chip sm glance-chip"><app-icon [name]="g.icon" [size]="18" /></span>
+          <div><strong>{{ g.title }}</strong><span>{{ g.text }}</span></div>
+        </div>
+      }
+    </div>
+  `,
+  styles: `.glance-chip { background: linear-gradient(135deg, #059669, #0d9488); }`,
+})
+export class GlanceComponent {
+  readonly items = input<GlanceItem[]>([]);
+}
 
 @Component({
   selector: 'app-privacy-page',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, GlanceComponent],
   template: `
     <section class="page-header">
       <div class="container">
         <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <span>Privacy Policy</span></div>
         <span class="eyebrow">Legal &amp; Compliance</span>
         <h1>{{ i18n.t('pages.privacyTitle') }}</h1>
-        <p class="lead">Effective / Last Updated: 18 November 2026 &middot; Applies to keshavsingh.in and connected ecosystem services.</p>
+        <p class="lead">Last updated: 21 November 2026 &middot; Applies to keshavsingh.in and connected ecosystem services.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container prose">
+        <app-glance [items]="glance" />
+        <h2>0. Your Choices at a Glance</h2>
+        <p>
+          Visit telemetry is sent only after you choose <strong>Accept all</strong> in the cookie banner. Choosing <strong>Essential only</strong> stops visit counting and asks Google AdSense for non-personalised ads. You can change this anytime from <em>Cookie settings</em> in the footer or on the <a routerLink="/cookie-policy">Cookie Policy</a> page.
+        </p>
         <h2>1. Overview &amp; Scope</h2>
         <p>
           Your privacy matters. This website (<code>https://keshavsingh.in</code>) collects only the minimum data necessary to operate interactive calculators, deliver requested pages reliably, measure aggregated page traffic, and answer messages submitted voluntarily via the Contact page.
@@ -61,6 +108,65 @@ import { I18nHubService } from '../../services/i18n-hub.service';
 })
 export class PrivacyPolicyPageComponent {
   readonly i18n = inject(I18nHubService);
+  readonly glance = PRIVACY_GLANCE;
+}
+
+@Component({
+  selector: 'app-security-page',
+  standalone: true,
+  imports: [RouterLink, GlanceComponent],
+  template: `
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <span>{{ i18n.t('nav.security') }}</span></div>
+        <span class="eyebrow">Trust &amp; Safety</span>
+        <h1>{{ i18n.t('pages.securityTitle') }}</h1>
+        <p class="lead">How keshavsingh.in protects your account and data — and how to report a vulnerability.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container prose">
+        <app-glance [items]="glance" />
+
+        <h2>How We Protect You</h2>
+        <ul>
+          <li><strong>One identity server.</strong> Sign-in for every app happens only at <code>id.keshavsingh.in</code> using OAuth2 JWTs and FIDO2 passkeys. Apps never see your password.</li>
+          <li><strong>Short-lived tokens.</strong> Access tokens live in memory only; the rotating refresh token is an <code>HttpOnly</code>, <code>Secure</code> cookie that page scripts cannot read.</li>
+          <li><strong>Encryption.</strong> All traffic uses HTTPS (TLS 1.2+). Contact messages and account records are encrypted at rest.</li>
+          <li><strong>Least data.</strong> This hub needs no account. Calculators run entirely in your browser.</li>
+        </ul>
+
+        <h2>Report a Vulnerability</h2>
+        <p>
+          Found a security issue in any <code>*.keshavsingh.in</code> site or app? Please email
+          <a href="mailto:keshavsingh4522@gmail.com?subject=Security%20report">keshavsingh4522&#64;gmail.com</a>
+          with the subject <em>“Security report”</em>, steps to reproduce, and the affected URL. Machine-readable details are in
+          <a href="/.well-known/security.txt">/.well-known/security.txt</a>.
+        </p>
+        <h3>Our Promise</h3>
+        <ul>
+          <li>We acknowledge reports and keep you updated until the issue is fixed.</li>
+          <li>We will not pursue action against good-faith research that follows this policy.</li>
+          <li>With your permission, we credit you once the fix ships.</li>
+        </ul>
+        <h3>Please Don’t</h3>
+        <ul>
+          <li>Access, change or delete other people’s data — use your own test accounts.</li>
+          <li>Run denial-of-service, spam or social-engineering tests.</li>
+          <li>Disclose the issue publicly before it is fixed.</li>
+        </ul>
+
+        <div class="callout">
+          Privacy request instead? See the <a routerLink="/privacy-policy">Privacy Policy</a> or <a routerLink="/data-deletion">delete your data</a>.
+        </div>
+      </div>
+    </section>
+  `,
+})
+export class SecurityPageComponent {
+  readonly i18n = inject(I18nHubService);
+  readonly glance = SECURITY_GLANCE;
 }
 
 @Component({
@@ -115,7 +221,7 @@ export class TermsPageComponent {
         <h2>Categories Used</h2>
         <ul>
           <li><strong>Essential Preferences:</strong> Stores light/dark theme choice (<code>ks_hub_theme</code>) and your cookie consent choice (<code>ks_hub_consent</code>) locally in browser storage.</li>
-          <li><strong>Analytics Telemetry:</strong> Lightweight visit counters measuring which ecosystem guides and tools help visitors most.</li>
+          <li><strong>Analytics Telemetry (opt-in):</strong> Lightweight visit counters (page path and referrer, no identifiers) sent only after you choose <em>Accept all</em>.</li>
           <li><strong>Advertising (Google AdSense):</strong> Cookies used by Google to serve contextual or personalized ads safely when consent applies.</li>
         </ul>
 
@@ -133,18 +239,14 @@ export class TermsPageComponent {
 })
 export class CookiePolicyPageComponent {
   readonly i18n = inject(I18nHubService);
-  readonly currentConsent = signal(this.readConsent());
+  private readonly consent = inject(ConsentService);
+  readonly currentConsent = computed(() => {
+    const c = this.consent.choice();
+    return c === 'accepted' ? 'Accepted (analytics + personalised ads)' : c === 'essential' ? 'Essential only' : 'Not set yet';
+  });
 
-  private readConsent(): string {
-    if (typeof localStorage === 'undefined') return 'Not set yet';
-    return localStorage.getItem('ks_hub_consent') ?? 'Not set yet';
-  }
-
-  setConsent(val: 'accepted' | 'essential'): void {
-    if (typeof localStorage !== 'undefined') {
-      localStorage.setItem('ks_hub_consent', val);
-      this.currentConsent.set(val);
-    }
+  setConsent(val: ConsentChoice): void {
+    this.consent.choose(val);
   }
 }
 
@@ -215,6 +317,8 @@ export class DisclaimerPageComponent {
             <li><a routerLink="/terms">Terms &amp; Conditions</a></li>
             <li><a routerLink="/cookie-policy">Cookie Policy</a></li>
             <li><a routerLink="/disclaimer">Disclaimer</a></li>
+            <li><a routerLink="/security">Security &amp; Responsible Disclosure</a></li>
+            <li><a routerLink="/data-deletion">Account &amp; Data Deletion</a></li>
           </ul>
         </div>
 
@@ -346,21 +450,28 @@ export class ResumeBridgePageComponent {
 @Component({
   selector: 'app-not-found-page',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, IconComponent],
   template: `
     <section class="section">
-      <div class="container card">
-        <span class="eyebrow">404</span>
-        <h1>Page Not Found</h1>
-        <p>The requested URL does not match any active route on keshavsingh.in. Jump back into our tools or app directory below.</p>
-        <div class="pill-bar">
-          <a routerLink="/" class="btn btn-primary btn-sm">Go Home</a>
-          <a routerLink="/tools" class="btn btn-outline btn-sm">Open Tools</a>
-          <a routerLink="/apps" class="btn btn-outline btn-sm">Explore Apps</a>
-          <a routerLink="/sitemap" class="btn btn-outline btn-sm">Full Sitemap</a>
+      <div class="container nf">
+        <span class="nf-code gradient-text">404</span>
+        <h1>This page wandered off</h1>
+        <p class="lead">Try one of these instead — or press <kbd>Ctrl</kbd> + <kbd>K</kbd> to search.</p>
+        <div class="cta-row nf-actions">
+          <a routerLink="/" class="btn btn-primary"><app-icon name="arrow" [size]="16" /> Home</a>
+          <a routerLink="/apps" class="btn btn-outline"><app-icon name="sparkles" [size]="16" /> Apps</a>
+          <a routerLink="/tools" class="btn btn-outline"><app-icon name="calculator" [size]="16" /> Tools</a>
+          <a routerLink="/sitemap" class="btn btn-outline"><app-icon name="globe" [size]="16" /> Sitemap</a>
         </div>
       </div>
     </section>
+  `,
+  styles: `
+    .nf { text-align: center; display: grid; justify-items: center; gap: 0.5rem; padding-block: clamp(1rem, 6vw, 3rem); }
+    .nf-code { font-size: clamp(4.5rem, 16vw, 8rem); font-weight: 800; line-height: 1; letter-spacing: -0.05em; }
+    .nf h1 { margin: 0; font-size: var(--fs-h1); }
+    .nf-actions { justify-content: center; margin-top: 1rem; }
+    kbd { font-family: inherit; font-size: 0.8em; padding: 0.1rem 0.4rem; border: 1px solid var(--border); border-radius: 6px; }
   `,
 })
 export class NotFoundPageComponent {}

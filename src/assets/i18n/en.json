@@ -4,7 +4,7 @@
     "nativeName": "English"
   },
   "nav": {
-    "brandSub": "Ecosystem & Creator Hub",
+    "brandSub": "Apps · Tools · Stories",
     "home": "Home",
     "apps": "Apps",
     "tools": "Tools",
@@ -15,7 +15,12 @@
     "contact": "Contact",
     "portfolio": "Portfolio ↗",
     "searchBtn": "Search",
-    "searchPlaceholder": "Search tools, apps, guides, channels..."
+    "searchPlaceholder": "Search apps, tools, guides…",
+    "skip": "Skip to content",
+    "menu": "Menu",
+    "security": "Security",
+    "roadmap": "Roadmap",
+    "searchEmpty": "No matches — try “panchang”, “video” or “SSO”."
   },
   "hero": {
     "eyebrow": "keshavsingh.in · Ecosystem & Creator Hub",
@@ -63,14 +68,28 @@
     "openApp": "Open app ↗",
     "visitChannel": "Visit Channel on YouTube ↗",
     "readArticle": "Read full guide →",
-    "editorialDisclosure": "Editorial & Advertiser Disclosure: Guides and calculators on keshavsingh.in are authored by Keshav Singh from real software systems. Pages may display Google AdSense contextual or personalized ads managed transparently under our Privacy & Cookie Policies."
+    "editorialDisclosure": "Editorial & Advertiser Disclosure: Guides and calculators on keshavsingh.in are authored by Keshav Singh from real software systems. Pages may display Google AdSense contextual or personalized ads managed transparently under our Privacy & Cookie Policies.",
+    "viewAll": "View all",
+    "open": "Open",
+    "subscribe": "Subscribe",
+    "minRead": "min read",
+    "learnMore": "Learn more"
   },
   "footer": {
-    "desc": "Original interactive utilities, creator workbooks, multi-app platform guides, and engineering documentation across the keshavsingh.in ecosystem.",
-    "explore": "Explore Hub",
-    "websites": "Ecosystem Websites",
-    "trust": "Trust & Policies",
-    "portfolioNote": "Personal CV & Engineering Resume hosted separately at"
+    "desc": "Free tools, connected apps and original stories by Keshav Singh — in English and Hindi.",
+    "explore": "Explore",
+    "websites": "Apps",
+    "trust": "Trust",
+    "portfolioNote": "Personal CV & Engineering Resume hosted separately at",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies",
+    "disclaimer": "Disclaimer",
+    "dataDeletion": "Delete my data",
+    "sitemap": "Sitemap",
+    "cookieSettings": "Cookie settings",
+    "madeIn": "Made in India",
+    "portfolio": "Portfolio & CV"
   },
   "pages": {
     "appsTitle": "All Ecosystem Websites & Applications",
@@ -91,7 +110,8 @@
     "cookiesTitle": "Cookie Policy & Preferences",
     "disclaimerTitle": "General & Calculator Disclaimer",
     "sitemapTitle": "Complete Site Index",
-    "resumeTitle": "Engineering Resume & Portfolio Redirect"
+    "resumeTitle": "Engineering Resume & Portfolio Redirect",
+    "securityTitle": "Security & Responsible Disclosure"
   },
   "items": {
     "tools": {
@@ -158,5 +178,112 @@
         "shortTagline": "Software architecture career history, GitHub repositories & client-side PDF CV on portfolio.keshavsingh.in."
       }
     }
+  },
+  "consent": {
+    "label": "Cookie consent",
+    "text": "We use essential storage for theme and language. With your OK we also count visits and show personalised ads.",
+    "learnMore": "Learn more",
+    "accept": "Accept all",
+    "essential": "Essential only"
+  },
+  "home": {
+    "hero": {
+      "badge": "Free · No sign-up · EN / हिन्दी",
+      "title": "Tools, apps & stories",
+      "titleAccent": "built for creators",
+      "lead": "Eight connected apps, free calculators and 3D animated channels — in one place.",
+      "ctaApps": "Explore apps",
+      "ctaTools": "Try free tools",
+      "tick1": "No sign-up",
+      "tick2": "Free forever",
+      "tick3": "Private by design"
+    },
+    "stats": {
+      "apps": "Connected apps",
+      "tools": "Free tools",
+      "channels": "YouTube channels",
+      "guides": "In-depth guides"
+    },
+    "goals": {
+      "title": "What brings you here?",
+      "video": {
+        "label": "Make videos",
+        "desc": "3D comedy & story shorts"
+      },
+      "panchang": {
+        "label": "Panchang",
+        "desc": "Samvat, Rahu Kaal & muhurat"
+      },
+      "engineering": {
+        "label": "Engineering",
+        "desc": "Architecture tools & guides"
+      },
+      "hiring": {
+        "label": "Hire Keshav",
+        "desc": "Portfolio & résumé"
+      }
+    },
+    "apps": {
+      "title": "One ecosystem, eight apps",
+      "sub": "One secure sign-in across every app."
+    },
+    "tools": {
+      "title": "Free tools, no login",
+      "sub": "Runs in your browser — formulas shown."
+    },
+    "creators": {
+      "title": "Watch & subscribe",
+      "sub": "Tech, devotion and 3D comedy."
+    },
+    "guides": {
+      "title": "Latest guides",
+      "sub": "Written from real production systems."
+    },
+    "trust": {
+      "title": "Private & secure by design",
+      "noSell": {
+        "t": "Never sold",
+        "d": "Minimal data, encrypted, deletable."
+      },
+      "passkey": {
+        "t": "Passkeys & TLS",
+        "d": "One secure sign-in everywhere."
+      },
+      "cookies": {
+        "t": "You choose",
+        "d": "Analytics only with your consent."
+      },
+      "human": {
+        "t": "Real replies",
+        "d": "Messages reach Keshav directly."
+      }
+    },
+    "cta": {
+      "title": "Have an idea or a collaboration?",
+      "sub": "Sponsorships, memberships, bug reports — or just hello.",
+      "button": "Get in touch"
+    }
+  },
+  "contact": {
+    "eyebrow": "Say hello",
+    "lead": "Pick a topic and send a note — it goes straight to a private, encrypted inbox.",
+    "topicLabel": "What is it about?",
+    "topics": {
+      "general": "General",
+      "membership": "Membership",
+      "sponsor": "Sponsorship",
+      "bug": "Bug / idea",
+      "privacy": "Privacy request"
+    },
+    "name": "Your name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Sending…",
+    "ok": "Thank you — your message was delivered.",
+    "err": "Could not reach the server. Please email keshavsingh4522@gmail.com instead.",
+    "invalid": "Please add your name, a valid email and a message (10+ characters).",
+    "elsewhere": "Other ways to reach me",
+    "privacyNote": "Sent over HTTPS and encrypted at rest. Never sold or added to mailing lists."
   }
 }

@@ -3,6 +3,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ECOSYSTEM_APPS } from '../../data/apps.catalog';
 import { I18nHubService } from '../../services/i18n-hub.service';
 import { SeoHubService } from '../../services/seo-hub.service';
+import { appSchema } from '../../services/structured-data';
 
 @Component({
   selector: 'app-app-detail-page',
@@ -109,6 +110,8 @@ export class AppDetailPageComponent implements OnInit {
         title: `${item.name} — Features, Workflows & Guide | keshavsingh.in`,
         description: item.shortTagline,
         path: `/apps/${item.slug}`,
+        crumbName: item.name,
+        schema: appSchema(item),
       });
     }
   }

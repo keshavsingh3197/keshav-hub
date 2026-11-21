@@ -30,6 +30,11 @@
               "src/ads.txt",
               "src/assets",
               {
+                "glob": "security.txt",
+                "input": "src/.well-known",
+                "output": ".well-known"
+              },
+              {
                 "glob": "**/*",
                 "input": "public"
               }

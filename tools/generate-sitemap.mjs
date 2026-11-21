@@ -26,9 +26,9 @@ const staticRoutes = [
   'privacy-policy',
   'terms',
   'cookie-policy',
+  'security',
   'disclaimer',
   'data-deletion',
-  'robots',
   'sitemap',
   'resume',
 ];
