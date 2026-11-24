@@ -64,7 +64,24 @@ export function toolSchema(tool: HubToolMeta): Record<string, unknown>[] {
 
 export function guideSchema(guide: EngineeringGuide): Record<string, unknown>[] {
   const url = `${SITE_ORIGIN}/guides/${guide.slug}`;
-  return [
+  const words = [
+    guide.title,
+    guide.summary,
+    ...guide.takeaways,
+    ...guide.sections.flatMap((s) => [
+      s.heading,
+      ...s.paragraphs,
+      ...(s.bullets ?? []),
+      s.codeBlock?.caption ?? '',
+      s.codeBlock?.code ?? '',
+    ]),
+    ...(guide.faqs ?? []).flatMap((f) => [f.question, f.answer]),
+  ]
+    .join(' ')
+    .trim()
+    .split(/\s+/).length;
+
+  const nodes: Record<string, unknown>[] = [
     {
       '@type': 'TechArticle',
       '@id': `${url}#article`,
@@ -74,6 +91,7 @@ export function guideSchema(guide: EngineeringGuide): Record<string, unknown>[] 
       datePublished: guide.publishedDate,
       dateModified: guide.updatedDate,
       timeRequired: `PT${guide.readMinutes}M`,
+      wordCount: words,
       mainEntityOfPage: url,
       image: SOCIAL_IMAGE,
       inLanguage: 'en',
@@ -81,4 +99,6 @@ export function guideSchema(guide: EngineeringGuide): Record<string, unknown>[] 
       publisher: ORG_REF,
     },
   ];
+  if (guide.faqs?.length) nodes.push(faqPage(url, guide.faqs));
+  return nodes;
 }

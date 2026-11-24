@@ -7,7 +7,7 @@
     "ng": "ng",
     "sitemap": "node ./tools/generate-sitemap.mjs",
     "start": "ng serve --port 4250",
-    "build": "npm run sitemap && ng build --configuration production",
+    "build": "npm run sitemap && ng build --configuration production && node ./tools/postbuild-adsense-hygiene.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

@@ -97,8 +97,7 @@ export class PlansPageComponent {
                 <span class="badge">{{ m.quarter }}</span>
                 <span class="badge"
                   [class.badge-success]="m.status === 'Shipped'"
-                  [class.badge-accent]="m.status === 'In Progress'"
-                  [class.badge-warn]="m.status === 'Planned'">
+                  [class.badge-accent]="m.status === 'In Progress'">
                   {{ m.status }}
                 </span>
                 <span class="badge">{{ m.area }}</span>

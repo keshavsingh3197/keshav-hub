@@ -1,7 +1,7 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
 import { ECOSYSTEM_APPS } from './data/apps.catalog';
 import { HUB_TOOLS } from './data/creators-plans.catalog';
-import { ENGINEERING_GUIDES } from './data/guides.catalog';
+import { GUIDE_CARDS } from './data/guides-cards.catalog';
 
 export const serverRoutes: ServerRoute[] = [
   { path: '', renderMode: RenderMode.Prerender },
@@ -27,7 +27,7 @@ export const serverRoutes: ServerRoute[] = [
     path: 'guides/:slug',
     renderMode: RenderMode.Prerender,
     async getPrerenderParams() {
-      return ENGINEERING_GUIDES.map((g) => ({ slug: g.slug }));
+      return GUIDE_CARDS.map((g) => ({ slug: g.slug }));
     },
   },
   { path: 'plans', renderMode: RenderMode.Prerender },

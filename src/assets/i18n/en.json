@@ -4,7 +4,7 @@
     "nativeName": "English"
   },
   "nav": {
-    "brandSub": "Apps · Tools · Stories",
+    "brandSub": "Guides · Tools · Architecture",
     "home": "Home",
     "apps": "Apps",
     "tools": "Tools",
@@ -15,141 +15,161 @@
     "contact": "Contact",
     "portfolio": "Portfolio ↗",
     "searchBtn": "Search",
-    "searchPlaceholder": "Search apps, tools, guides…",
+    "searchPlaceholder": "Search 16 guides, 8 tools, apps…",
     "skip": "Skip to content",
     "menu": "Menu",
     "security": "Security",
-    "roadmap": "Roadmap",
-    "searchEmpty": "No matches — try “panchang”, “video” or “SSO”."
+    "roadmap": "Changelog",
+    "searchEmpty": "No matches — try “FFmpeg”, “Passkey”, “Tithi” or “SSO”."
   },
   "hero": {
-    "eyebrow": "keshavsingh.in · Ecosystem & Creator Hub",
-    "title": "Interactive Web Tools, Creator Studios & Original Engineering Guides",
-    "lead": "The central hub for all web applications, 3D animation workflows, Vedic calendar tools, and engineering guides built by Keshav Singh. Use browser calculators with zero login, explore all eight connected platforms, or read in-depth tutorials.",
-    "ctaTools": "Try Interactive Tools",
-    "ctaApps": "Explore All 8 Apps",
+    "eyebrow": "keshavsingh.in · Engineering, Astronomy & Creator Publication",
+    "title": "Original Engineering Guides, Vedic Calculators & Creator Tools",
+    "lead": "Sixteen production-tested technical guides, eight free browser calculators, and eight interconnected .NET 10 & Angular 22 platforms authored by Keshav Singh.",
+    "ctaTools": "Try All 8 Free Tools",
+    "ctaApps": "Explore Case Studies",
     "ctaCreators": "Watch Creator Series",
-    "portfolioNote": "Looking specifically for my software engineering resume and experience timeline?",
+    "portfolioNote": "Looking specifically for my software engineering resume and enterprise experience timeline?",
     "portfolioLink": "Visit portfolio.keshavsingh.in",
-    "snapshotTitle": "Live Across the keshavsingh.in Ecosystem"
+    "snapshotTitle": "Published & Maintained on keshavsingh.in"
   },
   "finder": {
     "eyebrow": "Quick Goal Finder",
-    "title": "What Would You Like to Do Today?",
-    "subtitle": "Jump straight to the right calculator, platform, or technical guide."
+    "title": "What Would You Like to Solve Today?",
+    "subtitle": "Jump straight to an interactive browser calculator or long-form technical playbook."
   },
   "sections": {
-    "toolsEyebrow": "Original Web Utilities",
-    "toolsTitle": "Interactive Tools Built for Creators & Engineers",
-    "toolsSub": "Instant browser calculations backed by open formulas, methodology explanations, and FAQs.",
-    "openAllTools": "Open All Tools",
-    "appsEyebrow": "All Websites & Mobile Apps",
-    "appsTitle": "What Visitors Can Do Across Every Platform",
-    "appsSub": "Each application serves one clear domain on its subdomain while sharing guides and support here.",
-    "compareApps": "Compare All Platforms",
+    "toolsEyebrow": "8 Standalone Browser Utilities",
+    "toolsTitle": "Free Calculators & Generators for Engineers & Creators",
+    "toolsSub": "100% client-side TypeScript calculations backed by open formulas, worked production scenarios, and FAQs.",
+    "openAllTools": "Open All 8 Tools",
+    "appsEyebrow": "System Architecture Case Studies",
+    "appsTitle": "Inside the Eight Connected Platforms Under *.keshavsingh.in",
+    "appsSub": "Detailed system design, security boundaries, and user workflows across every web and mobile platform.",
+    "compareApps": "Browse All Case Studies",
     "creatorsEyebrow": "Creator & Storytelling Studios",
-    "creatorsTitle": "Original Video Channels & 3D Animated Series",
-    "creatorsSub": "Weekly engineering walkthroughs, daily Panchang & Katha features, and 3D comedy shorts for global & Indian audiences.",
+    "creatorsTitle": "Official Video Channels & 3D Animated Series",
+    "creatorsSub": "Weekly software architecture walkthroughs, daily Panchang & Pauranik Kathas, and original 3D comedy Shorts.",
     "openCreatorHub": "Explore Creator Hub",
-    "guidesEyebrow": "Original Editorial Library",
-    "guidesTitle": "In-Depth Architecture, Policy & Creator Guides",
-    "guidesSub": "Written directly from production codebases, AdSense reviews, and live YouTube workflows.",
-    "browseAllGuides": "Browse All Guides",
-    "plansEyebrow": "Plans, Membership & Collaboration",
+    "guidesEyebrow": "Original Technical Publication",
+    "guidesTitle": "In-Depth Architecture, FFmpeg, Vedic Math & Policy Guides",
+    "guidesSub": "1,300+ word engineering articles featuring real C#/.NET 10, TypeScript, FFmpeg, and ephemeris code.",
+    "browseAllGuides": "Browse All 16 Guides",
+    "plansEyebrow": "Access, Membership & Collaboration",
     "plansTitle": "How to Participate, Subscribe & Collaborate",
-    "plansSub": "All public utilities remain free forever alongside verified SSO memberships and community sponsorship.",
-    "viewPlans": "View Plans",
-    "viewRoadmap": "2026–2027 Roadmap",
+    "plansSub": "All public calculators and guides remain free forever alongside verified Central SSO workspaces.",
+    "viewPlans": "View Access Tiers",
+    "viewRoadmap": "Release Changelog",
     "howToInteract": "How to Interact"
   },
   "common": {
-    "launchCalculator": "Launch calculator & guide →",
+    "launchCalculator": "Open calculator & methodology →",
     "readGuide": "Read guide",
     "openApp": "Open app ↗",
     "visitChannel": "Visit Channel on YouTube ↗",
-    "readArticle": "Read full guide →",
-    "editorialDisclosure": "Editorial & Advertiser Disclosure: Guides and calculators on keshavsingh.in are authored by Keshav Singh from real software systems. Pages may display Google AdSense contextual or personalized ads managed transparently under our Privacy & Cookie Policies.",
+    "readArticle": "Read full technical guide →",
+    "editorialDisclosure": "Editorial & Advertiser Disclosure: All calculators, code examples, and engineering guides on keshavsingh.in are authored first-hand by Keshav Singh from live software systems. Eligible content pages may display Google AdSense contextual or personalized ads governed transparently by our Privacy & Cookie Policies.",
     "viewAll": "View all",
     "open": "Open",
     "subscribe": "Subscribe",
     "minRead": "min read",
-    "learnMore": "Learn more"
+    "learnMore": "Read case study"
   },
   "footer": {
-    "desc": "Free tools, connected apps and original stories by Keshav Singh — in English and Hindi.",
-    "explore": "Explore",
-    "websites": "Apps",
-    "trust": "Trust",
+    "desc": "Original .NET 10, Angular, FFmpeg & Vedic astronomy guides plus 8 free browser calculators by Keshav Singh — in English and Hindi.",
+    "explore": "Publication",
+    "websites": "Ecosystem",
+    "trust": "Trust & Legal",
     "portfolioNote": "Personal CV & Engineering Resume hosted separately at",
-    "privacy": "Privacy",
+    "privacy": "Privacy Policy",
     "terms": "Terms",
-    "cookies": "Cookies",
+    "cookies": "Cookie Policy",
     "disclaimer": "Disclaimer",
     "dataDeletion": "Delete my data",
     "sitemap": "Sitemap",
     "cookieSettings": "Cookie settings",
-    "madeIn": "Made in India",
+    "madeIn": "Engineered in India",
     "portfolio": "Portfolio & CV"
   },
   "pages": {
-    "appsTitle": "All Ecosystem Websites & Applications",
-    "appsLead": "Detailed walkthroughs of every web platform and mobile app under keshavsingh.in, capabilities, tech stack, and privacy standards.",
-    "toolsTitle": "Free Creator, Vedic Calendar & Architecture Tools",
-    "toolsLead": "Browser-side calculators with transparent formulas, worked examples, and FAQs.",
-    "creatorsTitle": "Creator Channels, 3D Comedy & Cultural Storytelling",
-    "creatorsLead": "Official YouTube channels, dual International + Indian 3D workflows inside AnimStudio AI, and searchable episode index.",
-    "guidesTitle": "Engineering, Vedic Astronomy & Creator Playbooks",
-    "guidesLead": "Original long-form articles drawn from building eight interconnected platforms and AdSense/YouTube compliant hubs.",
-    "plansTitle": "Plans, Creator Access & Community Participation",
-    "roadmapTitle": "Public Product Roadmap (2026–2027)",
+    "appsTitle": "Ecosystem System Architecture & Platform Case Studies",
+    "appsLead": "Deep architectural walkthroughs, security models, and user workflows across all eight platforms built on *.keshavsingh.in.",
+    "toolsTitle": "8 Free Creator, FFmpeg, Vedic Astronomy & Backend Calculators",
+    "toolsLead": "100% client-side calculators and code generators with transparent equations, worked production examples, and FAQs.",
+    "creatorsTitle": "Creator Channels, 3D Animation Pipelines & Video Archive",
+    "creatorsLead": "Official YouTube channels, dual International + Indian 3D workflows inside AnimStudio AI, and searchable episode catalog.",
+    "guidesTitle": "Engineering, FFmpeg, Vedic Astronomy & Publisher Playbooks",
+    "guidesLead": "Sixteen original long-form technical guides authored directly from production .NET 10, Angular 22, WebGL, and ephemeris codebases.",
+    "plansTitle": "Community Access, SSO Workspaces & Patronage",
+    "roadmapTitle": "Engineering Release Changelog & Active Tracks",
     "interactTitle": "How Visitors, Creators & Developers Can Interact",
-    "aboutTitle": "About Keshav Ecosystem Hub (keshavsingh.in)",
+    "aboutTitle": "About Keshav Singh & Editorial Engineering Standards",
     "contactTitle": "Contact Keshav Singh & Ecosystem Support",
-    "privacyTitle": "Privacy Policy (AdSense, SSO & FamSphere)",
+    "privacyTitle": "Privacy Policy (AdSense, Central SSO & FamSphere)",
     "termsTitle": "Terms & Conditions",
-    "cookiesTitle": "Cookie Policy & Preferences",
-    "disclaimerTitle": "General & Calculator Disclaimer",
-    "sitemapTitle": "Complete Site Index",
-    "resumeTitle": "Engineering Resume & Portfolio Redirect",
-    "securityTitle": "Security & Responsible Disclosure"
+    "cookiesTitle": "Cookie Policy & Consent Preferences",
+    "disclaimerTitle": "General, Financial & Astronomical Disclaimer",
+    "sitemapTitle": "Complete Site Directory",
+    "resumeTitle": "Engineering Resume & Portfolio Bridge",
+    "securityTitle": "Security Architecture & Responsible Disclosure"
   },
   "items": {
     "tools": {
       "youtube-earnings-estimator": {
         "title": "YouTube Long-Form & Shorts RPM Estimator",
         "badge": "Creator Finance Calculator",
-        "shortDesc": "Estimate monthly YouTube Partner Program (AdSense for YouTube) earnings across 16:9 videos, vertical Shorts, India vs Tier-1 geographies, and sponsors."
+        "shortDesc": "Model monthly YouTube Partner Program revenue across 16:9 watch-page ads, 9:16 Shorts pools, India vs Tier-1 geographies, and sponsorships."
       },
       "short-hook-pacing-planner": {
         "title": "Comedy & 3D Short Scene Pacing Planner",
         "badge": "AnimStudio Storyboard Tool",
-        "shortDesc": "Time 15s–60s comedy hooks, spoken word rates, multi-character emotions, and export Story Agent JSON for studio.keshavsingh.in."
+        "shortDesc": "Audit 3-second opening hooks, spoken WPM timing, character emotion tags, and export deterministic Story Agent JSON."
       },
       "panchang-samvat-converter": {
         "title": "Vikram Samvat & Sunrise-Anchored Kaal Calculator",
         "badge": "Vedic Calendar Utility",
-        "shortDesc": "Convert Gregorian dates to Vikram Samvat & Shaka Samvat and calculate exact 8-slice daytime Rahu Kaal, Yamaganda, Gulika, and Abhijit windows."
+        "shortDesc": "Convert Gregorian dates to Vikram & Shaka Samvat and calculate exact 8-slice daytime Rahu Kaal, Yamaganda, Gulika, and Abhijit windows."
       },
       "api-latency-capacity-planner": {
         "title": "Microservices Latency & Scaling Capacity Planner",
         "badge": "Backend Architecture Calculator",
-        "shortDesc": "Model database load reduction with Redis caching, gRPC vs JSON REST framing, p95 latency budgets, and container replica counts."
+        "shortDesc": "Simulate Redis cache database offload, gRPC vs JSON REST framing, p95 tail latency budgets, and Kubernetes pod counts."
+      },
+      "ffmpeg-video-bitrate-storage-calculator": {
+        "title": "FFmpeg Video Bitrate, CRF & Cloud Storage Estimator",
+        "badge": "Video Encoding Calculator",
+        "shortDesc": "Compute optimal H.264, H.265, and AV1 bitrates, CRF targets, MP4 sizes, CDN egress, and ready-to-run FFmpeg CLI commands."
+      },
+      "tithi-nakshatra-lunar-phase-calculator": {
+        "title": "Lunar Tithi, Paksha & Nakshatra Angle Explorer",
+        "badge": "Vedic Astronomy Tool",
+        "shortDesc": "Calculate exact Shukla/Krishna Tithi (1–30), % elapsed, Nakshatra (1–27) Pada, Nitya Yoga, and Karana from Sun–Moon longitudes."
+      },
+      "json-ld-seo-schema-generator": {
+        "title": "JSON-LD Structured Data & OpenGraph Validator",
+        "badge": "Technical SEO Utility",
+        "shortDesc": "Build unicode-escaped Schema.org JSON-LD (TechArticle, WebApplication, FAQPage) and OpenGraph tags with SERP length checks."
+      },
+      "cron-jwt-epoch-developer-toolkit": {
+        "title": "Cron Schedule, IST Epoch & JWT Rotation Planner",
+        "badge": "DevOps & Auth Utility",
+        "shortDesc": "Translate UTC 5-field Cron schedules into Asia/Kolkata IST (+05:30), decode Unix Epochs, and audit JWT rotation lifetimes."
       }
     },
     "apps": {
       "animstudio": {
         "name": "AnimStudio AI",
         "badge": "3D Video & Shorts Studio",
-        "shortTagline": "Multi-track 2D/3D video production studio, Comedy 3D engine, Story Agent, auto backgrounds & YouTube scheduler."
+        "shortTagline": "Multi-track 2D/3D video production studio, Comedy 3D engine, Story Agent, Motion Copy & YouTube scheduler."
       },
       "panchang": {
         "name": "Hindu Panchang & Sanskriti Hub",
-        "badge": "Daily Panchang & Vedic Calendar",
+        "badge": "Astronomical Vedic Calendar",
         "shortTagline": "Sunrise-accurate Tithi, Nakshatra, Yoga, Karana, city muhurats, Choghadiya & Aaj Ka Itihaas."
       },
       "pratiyogita": {
         "name": "Pratiyogita",
-        "badge": "Exams, Sports & Live Quiz Winners",
+        "badge": "Exams, Sports & Live Quiz Arena",
         "shortTagline": "Grassroots school olympiads, local sports fixtures, toppers leaderboard & zero-log YouTube live quiz arena."
       },
       "social-analytics": {
@@ -181,93 +201,93 @@
   },
   "consent": {
     "label": "Cookie consent",
-    "text": "We use essential storage for theme and language. With your OK we also count visits and show personalised ads.",
-    "learnMore": "Learn more",
+    "text": "We use essential local storage for theme and language. With your permission we also measure page visits and allow personalised AdSense ads.",
+    "learnMore": "Cookie Policy",
     "accept": "Accept all",
     "essential": "Essential only"
   },
   "home": {
     "hero": {
-      "badge": "Free · No sign-up · EN / हिन्दी",
-      "title": "Tools, apps & stories",
-      "titleAccent": "built for creators",
-      "lead": "Eight connected apps, free calculators and 3D animated channels — in one place.",
-      "ctaApps": "Explore apps",
-      "ctaTools": "Try free tools",
-      "tick1": "No sign-up",
-      "tick2": "Free forever",
-      "tick3": "Private by design"
+      "badge": "16 Original Guides · 8 Browser Calculators · EN / हिन्दी",
+      "title": "Engineering Playbooks, Vedic Math",
+      "titleAccent": "& Free Creator Tools",
+      "lead": "Production-tested guides on .NET 10 SSO, FFmpeg filtergraphs, Three.js 3D animation, and Siddhantic astronomy — paired with eight instant browser calculators requiring zero sign-up.",
+      "ctaApps": "Read Engineering Guides",
+      "ctaTools": "Open 8 Free Calculators",
+      "tick1": "100% Client-Side Tools",
+      "tick2": "Real Production Code",
+      "tick3": "Privacy-First Architecture"
     },
     "stats": {
-      "apps": "Connected apps",
-      "tools": "Free tools",
-      "channels": "YouTube channels",
-      "guides": "In-depth guides"
+      "apps": "Platform Case Studies",
+      "tools": "Browser Calculators",
+      "channels": "Creator Channels",
+      "guides": "Deep-Dive Guides"
     },
     "goals": {
-      "title": "What brings you here?",
+      "title": "Pick a Track to Start Building or Calculating",
       "video": {
-        "label": "Make videos",
-        "desc": "3D comedy & story shorts"
+        "label": "Video & FFmpeg",
+        "desc": "Bitrates, xfade & 3D pacing"
       },
       "panchang": {
-        "label": "Panchang",
-        "desc": "Samvat, Rahu Kaal & muhurat"
+        "label": "Vedic Astronomy",
+        "desc": "Tithi, Nakshatra & Rahu Kaal"
       },
       "engineering": {
-        "label": "Engineering",
-        "desc": "Architecture tools & guides"
+        "label": "Distributed .NET",
+        "desc": "Passkey SSO, MongoDB & gRPC"
       },
       "hiring": {
-        "label": "Hire Keshav",
-        "desc": "Portfolio & résumé"
+        "label": "Author & CV",
+        "desc": "About Keshav & Portfolio"
       }
     },
     "apps": {
-      "title": "One ecosystem, eight apps",
-      "sub": "One secure sign-in across every app."
+      "title": "System Architecture Case Studies",
+      "sub": "How eight specialized platforms share one zero-wildcard .NET 10 identity boundary."
     },
     "tools": {
-      "title": "Free tools, no login",
-      "sub": "Runs in your browser — formulas shown."
+      "title": "Eight Free Browser Calculators & Generators",
+      "sub": "Deterministic formulas, worked examples, and zero server-side input logging."
     },
     "creators": {
-      "title": "Watch & subscribe",
-      "sub": "Tech, devotion and 3D comedy."
+      "title": "Official Storytelling & Engineering Channels",
+      "sub": "Weekly architecture deep-dives, daily Vedic kathas, and original 3D comedy Shorts."
     },
     "guides": {
-      "title": "Latest guides",
-      "sub": "Written from real production systems."
+      "title": "Featured Technical & Creator Playbooks",
+      "sub": "Long-form tutorials with C#, TypeScript, FFmpeg, and astronomical derivations."
     },
     "trust": {
-      "title": "Private & secure by design",
+      "title": "Engineered for Privacy, Speed & Transparency",
       "noSell": {
-        "t": "Never sold",
-        "d": "Minimal data, encrypted, deletable."
+        "t": "Zero Data Broker Sales",
+        "d": "Calculators run locally in your browser."
       },
       "passkey": {
-        "t": "Passkeys & TLS",
-        "d": "One secure sign-in everywhere."
+        "t": "FIDO2 Passkeys & TLS",
+        "d": "Phishing-resistant central SSO."
       },
       "cookies": {
-        "t": "You choose",
-        "d": "Analytics only with your consent."
+        "t": "Fail-Closed Consent",
+        "d": "Non-personalised default until opt-in."
       },
       "human": {
-        "t": "Real replies",
-        "d": "Messages reach Keshav directly."
+        "t": "First-Hand Authorship",
+        "d": "Written & maintained by Keshav Singh."
       }
     },
     "cta": {
-      "title": "Have an idea or a collaboration?",
-      "sub": "Sponsorships, memberships, bug reports — or just hello.",
-      "button": "Get in touch"
+      "title": "Questions, Technical Feedback, or Collaboration?",
+      "sub": "Reach out regarding architecture reviews, creator workspaces, or grassroots olympiad sponsorships.",
+      "button": "Contact Keshav"
     }
   },
   "contact": {
-    "eyebrow": "Say hello",
-    "lead": "Pick a topic and send a note — it goes straight to a private, encrypted inbox.",
-    "topicLabel": "What is it about?",
+    "eyebrow": "Direct Inbox",
+    "lead": "Select a topic and send a message — delivered over HTTPS directly to Keshav Singh’s encrypted Admin inbox.",
+    "topicLabel": "What is your message about?",
     "topics": {
       "general": "General",
       "membership": "Membership",
@@ -283,7 +303,7 @@
     "ok": "Thank you — your message was delivered.",
     "err": "Could not reach the server. Please email keshavsingh4522@gmail.com instead.",
     "invalid": "Please add your name, a valid email and a message (10+ characters).",
-    "elsewhere": "Other ways to reach me",
-    "privacyNote": "Sent over HTTPS and encrypted at rest. Never sold or added to mailing lists."
+    "elsewhere": "Verified Profiles & Direct Channels",
+    "privacyNote": "Transmitted over TLS and encrypted at rest. Never sold or added to marketing lists."
   }
 }

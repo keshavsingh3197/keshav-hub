@@ -1,7 +1,7 @@
 import { Component, computed, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ECOSYSTEM_APPS } from '../../data/apps.catalog';
-import { ENGINEERING_GUIDES } from '../../data/guides.catalog';
+import { GUIDE_CARDS } from '../../data/guides-cards.catalog';
 import { HUB_TOOLS } from '../../data/creators-plans.catalog';
 import { ConsentChoice, ConsentService } from '../../services/consent.service';
 import { I18nHubService } from '../../services/i18n-hub.service';
@@ -359,7 +359,7 @@ export class SitemapPageComponent {
   readonly i18n = inject(I18nHubService);
   readonly tools = HUB_TOOLS;
   readonly apps = ECOSYSTEM_APPS;
-  readonly guides = ENGINEERING_GUIDES;
+  readonly guides = GUIDE_CARDS;
 }
 
 @Component({

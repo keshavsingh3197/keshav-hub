@@ -6,10 +6,10 @@ import { I18nHubService } from '../../services/i18n-hub.service';
 import { IconComponent, IconName } from '../../ui/icon.component';
 
 const ABOUT_FACTS: { icon: IconName; value: string; label: string }[] = [
-  { icon: 'code', value: '.NET · Angular', label: 'Core stack' },
-  { icon: 'server', value: 'Azure · AWS', label: 'Cloud' },
-  { icon: 'lock', value: 'OAuth2 · Passkeys', label: 'Identity' },
-  { icon: 'film', value: '3D · FFmpeg', label: 'Video' },
+  { icon: 'code', value: '.NET 10 · Angular 22', label: 'Core engineering stack' },
+  { icon: 'server', value: 'Azure · AWS · Mongo', label: 'Cloud & data layer' },
+  { icon: 'lock', value: 'OAuth 2.1 · Passkeys', label: 'Central SSO security' },
+  { icon: 'film', value: 'Three.js · FFmpeg', label: '3D & media pipeline' },
 ];
 
 @Component({
@@ -23,12 +23,12 @@ const ABOUT_FACTS: { icon: IconName; value: string; label: string }[] = [
         <div>
           <div class="breadcrumb"><a routerLink="/">{{ i18n.t('nav.home') }}</a> / <span>{{ i18n.t('nav.about') }}</span></div>
           <h1>{{ i18n.t('pages.aboutTitle') }}</h1>
-          <p class="lead">Software engineer and creator building free tools, connected apps and animated stories for India and beyond.</p>
+          <p class="lead">Software architect, technical author, and digital creator engineering open browser calculators, distributed .NET platforms, and 3D animated storytelling systems.</p>
         </div>
       </div>
     </section>
 
-    <section class="container facts" aria-label="Quick facts">
+    <section class="container facts" aria-label="Quick engineering facts">
       @for (f of facts; track f.label) {
         <div class="fact">
           <span class="icon-chip sm fact-chip"><app-icon [name]="f.icon" [size]="17" /></span>
@@ -39,28 +39,64 @@ const ABOUT_FACTS: { icon: IconName; value: string; label: string }[] = [
 
     <section class="section">
       <div class="container prose">
-        <h2>Who Builds &amp; Operates keshavsingh.in</h2>
+        <h2>1. Author Background &amp; Enterprise Engineering Experience</h2>
         <p>
-          <strong>Keshav Singh</strong> is an Indian software engineer (B.Tech in Computer Science, Jaipur Engineering College &amp; Research Centre) specializing in distributed .NET microservices, Angular interfaces, cloud automation on Azure and AWS, and digital video workflows. Across enterprise roles at Publicis Sapient, R Systems, Marlabs, and Unthinkable Solutions, he has built resilient APIs, identity platforms (OAuth2, Azure AD B2C, FIDO2 Passkeys), gRPC pipelines, and event-driven systems.
+          <strong>Keshav Singh</strong> is a Software Architect and Senior Full-Stack Engineer based in India (B.Tech in Computer Science &amp; Engineering, Jaipur Engineering College &amp; Research Centre). Across enterprise engineering deliveries with <strong>Publicis Sapient</strong>, <strong>R Systems</strong>, <strong>Marlabs</strong>, and <strong>Unthinkable Solutions</strong>, he has designed, hardened, and scaled distributed C#/.NET backend microservices, Angular web frontends, multi-tenant identity authorities (OAuth 2.0/2.1, Azure AD B2C, FIDO2 WebAuthn), high-throughput gRPC pipelines, and cloud-native deployments on Microsoft Azure and AWS.
         </p>
         <p>
-          Outside full-time client delivery, Keshav develops and maintains an integrated network of free community tools, Vedic astronomy engines, creative animation suites, and educational coding guides under <code>*.keshavsingh.in</code>.
-        </p>
-
-        <h2>Editorial Originality &amp; Tool Accuracy Standard</h2>
-        <p>
-          Every calculator and guide hosted on <code>keshavsingh.in</code> is authored directly from real implementations running in our production codebases—never copied wholesale from third-party directories. Where tools provide estimates (such as YouTube RPM modeling or cloud container sizing), formulas and underlying assumptions are documented openly on the page so readers can verify every number themselves.
+          Alongside enterprise architecture work, Keshav independently authors and operates the <code>*.keshavsingh.in</code> digital ecosystem—uniting public developer and creator calculators, Siddhantic/Drik Vedic astronomy software, automated 3D animation pipelines, and grassroots school olympiad platforms.
         </p>
 
-        <h2>Why Career Portfolio and Main Hub Are Separate</h2>
+        <h2>2. Editorial Originality, Code Verification &amp; Mathematical Rigor</h2>
         <p>
-          To keep recruiters focused and visitors well served, software hiring materials (work timeline, skills matrix, GitHub repos, and PDF CV download) live cleanly at
-          <a href="https://portfolio.keshavsingh.in" target="_blank" rel="noopener noreferrer">portfolio.keshavsingh.in</a>, while
-          <code>keshavsingh.in</code> remains dedicated to interactive calculators, documentation for all eight ecosystem platforms, creator video showcases, and long-form engineering &amp; creator guides.
+          Every long-form guide under <a routerLink="/guides">/guides</a> and every browser utility under <a routerLink="/tools">/tools</a> follows four strict editorial and engineering rules:
         </p>
+        <ul>
+          <li><strong>First-Hand Production Authorship:</strong> Articles are written directly from code running in our live repositories—covering real problems we solved such as Web Locks multi-tab refresh serialization, AES-256-GCM multi-key LLM failover, cumulative FFmpeg <code>xfade</code> A/V sync math, and Newton-Raphson lunar Tithi solvers.</li>
+          <li><strong>Transparent Client-Side Equations:</strong> None of our eight calculators hide behind opaque server calls. Every formula, codec efficiency factor, cache-hit equation, and planetary slice index is documented openly on the page and backed by automated Vitest unit suites.</li>
+          <li><strong>Astronomical &amp; Cultural Care:</strong> Devotional kathas and Panchang tools cross-check Lahiri Chitrapaksha sidereal coordinates, geographic sunrise refraction angles, and classical Muhurta treatises rather than repeating static midnight tables.</li>
+          <li><strong>Ongoing Maintenance &amp; Corrections:</strong> Guides carry explicit publication and modification dates and are updated whenever framework versions (such as Angular 22 static pre-rendering or .NET 10 runtime APIs) evolve. Readers can submit technical errata anytime via our <a routerLink="/contact">Contact Inbox</a>.</li>
+        </ul>
+
+        <h2>3. Ecosystem Domain Separation &amp; Privacy Governance</h2>
+        <div class="table-scroll">
+          <table>
+            <caption>Domain Architecture &amp; Purpose Separation Across *.keshavsingh.in</caption>
+            <thead>
+              <tr>
+                <th>Domain / Property</th>
+                <th>Core Role</th>
+                <th>Access &amp; Privacy Posture</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>keshavsingh.in</code></td>
+                <td>16 technical guides, 8 client-side calculators &amp; platform case studies</td>
+                <td>Free public SSG HTML; zero login; fail-closed cookie consent</td>
+              </tr>
+              <tr>
+                <td><code>portfolio.keshavsingh.in</code></td>
+                <td>Software engineering CV, enterprise career timeline &amp; client PDF resume</td>
+                <td>Dedicated zero-ad hiring subdomain for recruiters</td>
+              </tr>
+              <tr>
+                <td><code>id.keshavsingh.in</code></td>
+                <td>Central .NET 10 OAuth2 + FIDO2 Passkey Single Sign-On authority</td>
+                <td>Strict origin allowlist; HttpOnly rotating refresh sessions</td>
+              </tr>
+              <tr>
+                <td><code>studio / panchang / pratiyogita / ghar</code></td>
+                <td>Specialized 3D video studio, Vedic calendar, olympiads &amp; family ledger</td>
+                <td>Scoped stateless JWTs; zero ad tracking on private household data</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <div class="cta-row about-cta">
-          <a routerLink="/apps" class="btn btn-primary btn-sm">Explore All 8 Platforms</a>
+          <a routerLink="/guides" class="btn btn-primary btn-sm">Read All 16 Technical Guides</a>
+          <a routerLink="/tools" class="btn btn-outline btn-sm">Try All 8 Free Calculators</a>
           <a routerLink="/contact" class="btn btn-outline btn-sm">Contact Keshav</a>
           <a href="https://portfolio.keshavsingh.in" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Portfolio &amp; CV <app-icon name="external" [size]="14" /></a>
         </div>
@@ -76,6 +112,7 @@ const ABOUT_FACTS: { icon: IconName; value: string; label: string }[] = [
     .fact strong { display: block; font-size: 0.94rem; }
     .fact span:last-child { font-size: 0.8rem; color: var(--text-muted); }
     .fact-chip { background: linear-gradient(135deg, var(--primary), var(--accent)); }
+    .table-scroll { overflow-x: auto; }
     .about-cta { margin-top: 1.5rem; }
   `,
 })
@@ -188,8 +225,8 @@ export function isValidContact(name: string, email: string, message: string): bo
             }
           </div>
           <div class="callout aside-links">
-            <a routerLink="/privacy-policy">{{ i18n.t('footer.privacy') }}</a> ·
-            <a routerLink="/data-deletion">{{ i18n.t('footer.dataDeletion') }}</a> ·
+            <a routerLink="/privacy-policy">{{ i18n.t('footer.privacy') }}</a> &middot;
+            <a routerLink="/data-deletion">{{ i18n.t('footer.dataDeletion') }}</a> &middot;
             <a routerLink="/security">{{ i18n.t('nav.security') }}</a>
           </div>
         </aside>

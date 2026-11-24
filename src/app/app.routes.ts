@@ -1,26 +1,5 @@
 import { Routes } from '@angular/router';
-import { AppDetailPageComponent } from './pages/apps/app-detail.page';
-import { AppsPageComponent } from './pages/apps/apps.page';
-import { AboutPageComponent, ContactPageComponent } from './pages/contact-about/about-contact.page';
-import { CreatorsPageComponent } from './pages/creators/creators.page';
-import { GuideDetailPageComponent } from './pages/guides/guide-detail.page';
-import { GuidesPageComponent } from './pages/guides/guides.page';
 import { HomePageComponent } from './pages/home/home.page';
-import {
-  CookiePolicyPageComponent,
-  DataDeletionPageComponent,
-  DisclaimerPageComponent,
-  NotFoundPageComponent,
-  PrivacyPolicyPageComponent,
-  ResumeBridgePageComponent,
-  RobotsPageComponent,
-  SecurityPageComponent,
-  SitemapPageComponent,
-  TermsPageComponent,
-} from './pages/legal/legal.page';
-import { InteractPageComponent, PlansPageComponent, RoadmapPageComponent } from './pages/plans/plans-roadmap.page';
-import { ToolDetailPageComponent } from './pages/tools/tool-detail.page';
-import { ToolsPageComponent } from './pages/tools/tools.page';
 
 export const routes: Routes = [
   {
@@ -28,34 +7,40 @@ export const routes: Routes = [
     component: HomePageComponent,
     pathMatch: 'full',
     data: {
-      title: 'Keshav Singh — Free Creator Tools, Apps & Guides | keshavsingh.in',
+      title: 'Keshav Singh — Engineering Guides, Vedic Calculators & Creator Tools | keshavsingh.in',
       description:
-        'Free YouTube RPM and Panchang calculators, 8 connected apps, 3D animation channels and engineering guides by Keshav Singh — in English and Hindi.',
+        'Sixteen original .NET 10, FFmpeg, WebGL & Vedic astronomy guides plus 8 free client-side calculators and platform case studies by Keshav Singh.',
     },
   },
   {
     path: 'apps',
-    component: AppsPageComponent,
+    loadComponent: () => import('./pages/apps/apps.page').then((m) => m.AppsPageComponent),
     data: {
-      title: 'All 8 Ecosystem Apps & Platforms | keshavsingh.in',
+      title: 'Ecosystem System Architecture & Platform Case Studies | keshavsingh.in',
       description:
-        'Explore every connected website and app across keshavsingh.in including AnimStudio AI, Hindu Panchang, Pratiyogita, SocialPulse, Content Blog, Ghar Ledger, FamSphere, and Portfolio.',
+        'System architecture case studies across all 8 platforms on *.keshavsingh.in including AnimStudio AI, Hindu Panchang, Pratiyogita, SocialPulse, Content Blog, Ghar Ledger, FamSphere, and Portfolio.',
     },
   },
-  { path: 'apps/:slug', component: AppDetailPageComponent },
+  {
+    path: 'apps/:slug',
+    loadComponent: () => import('./pages/apps/app-detail.page').then((m) => m.AppDetailPageComponent),
+  },
   {
     path: 'tools',
-    component: ToolsPageComponent,
+    loadComponent: () => import('./pages/tools/tools.page').then((m) => m.ToolsPageComponent),
     data: {
-      title: 'Interactive Creator, Panchang & Architecture Calculators | keshavsingh.in',
+      title: '8 Free Creator, FFmpeg, Vedic Astronomy & Architecture Calculators | keshavsingh.in',
       description:
-        'Free browser utilities including YouTube RPM Estimator, 3D Short Pacing JSON Planner, Vikram Samvat & Rahu Kaal Calculator, and Microservices Capacity Planner.',
+        'Free client-side utilities: YouTube RPM Estimator, 3D Short Pacing Planner, Vikram Samvat & Rahu Kaal, Microservices Capacity, FFmpeg Bitrate, Lunar Tithi Explorer, JSON-LD Generator, and Cron/JWT Planner.',
     },
   },
-  { path: 'tools/:slug', component: ToolDetailPageComponent },
+  {
+    path: 'tools/:slug',
+    loadComponent: () => import('./pages/tools/tool-detail.page').then((m) => m.ToolDetailPageComponent),
+  },
   {
     path: 'creators',
-    component: CreatorsPageComponent,
+    loadComponent: () => import('./pages/creators/creators.page').then((m) => m.CreatorsPageComponent),
     data: {
       title: 'Creator Studios, 3D Animated Series & YouTube Channels | keshavsingh.in',
       description:
@@ -64,98 +49,106 @@ export const routes: Routes = [
   },
   {
     path: 'guides',
-    component: GuidesPageComponent,
+    loadComponent: () => import('./pages/guides/guides.page').then((m) => m.GuidesPageComponent),
     data: {
-      title: 'Original Engineering, Vedic Astronomy & Creator Guides | keshavsingh.in',
+      title: '16 Original Engineering, FFmpeg, Vedic Astronomy & Policy Guides | keshavsingh.in',
       description:
-        'Long-form technical guides covering .NET 10 SSO, FFmpeg 3D animations, Vedic Panchang astronomy math, YouTube AdSense compliance, and Pratiyogita architecture.',
+        'In-depth technical guides covering .NET 10 Passkey SSO, AES-256-GCM LLM failover, FFmpeg xfade/loudnorm, Lahiri Ayanamsa Tithi math, MongoDB ESR indexes, and Angular SSG SEO.',
     },
   },
-  { path: 'guides/:slug', component: GuideDetailPageComponent },
+  {
+    path: 'guides/:slug',
+    loadComponent: () => import('./pages/guides/guide-detail.page').then((m) => m.GuideDetailPageComponent),
+  },
   {
     path: 'plans',
-    component: PlansPageComponent,
+    loadComponent: () => import('./pages/plans/plans-roadmap.page').then((m) => m.PlansPageComponent),
     data: {
-      title: 'Plans, Creator Memberships & Support | keshavsingh.in',
+      title: 'Community Access, Creator Workspaces & Support | keshavsingh.in',
       description:
-        'Compare Ecosystem Explorer free access, Creator Studio SSO membership, and Pratiyogita tournament sponsorship tiers.',
+        'Compare open community access, Creator Studio Central SSO membership, and Pratiyogita tournament sponsorship.',
+      noindex: true,
     },
   },
   {
     path: 'roadmap',
-    component: RoadmapPageComponent,
+    loadComponent: () => import('./pages/plans/plans-roadmap.page').then((m) => m.RoadmapPageComponent),
     data: {
-      title: 'Public Product Roadmap 2026–2027 | keshavsingh.in',
+      title: 'Engineering Release Changelog & Architecture Milestones | keshavsingh.in',
       description:
-        'Track shipped and upcoming milestones across AnimStudio AI, creator channels, Pratiyogita, and keshavsingh.in tools.',
+        'Shipped engineering releases and active development tracks across keshavsingh.in, AnimStudio AI, Hindu Panchang, and Pratiyogita.',
+      noindex: true,
     },
   },
   {
     path: 'interact',
-    component: InteractPageComponent,
+    loadComponent: () => import('./pages/plans/plans-roadmap.page').then((m) => m.InteractPageComponent),
     data: {
       title: 'How to Interact & Collaborate | keshavsingh.in',
       description:
         'Ways to join live stream quizzes, moderated technical blog comments, SSO creator access, and community feedback.',
+      noindex: true,
     },
   },
   {
     path: 'about',
-    component: AboutPageComponent,
+    loadComponent: () => import('./pages/contact-about/about-contact.page').then((m) => m.AboutPageComponent),
     data: {
-      title: 'About Keshav Ecosystem Hub & Publishing Standards | keshavsingh.in',
+      title: 'About Keshav Singh — Software Architect & Publishing Standards | keshavsingh.in',
       description:
-        'Learn who builds keshavsingh.in, our original editorial and calculator standards, and how our career portfolio links via portfolio.keshavsingh.in.',
+        'Author biography, enterprise .NET/cloud engineering background, editorial verification standards, and domain governance for keshavsingh.in.',
     },
   },
   {
     path: 'contact',
-    component: ContactPageComponent,
+    loadComponent: () => import('./pages/contact-about/about-contact.page').then((m) => m.ContactPageComponent),
     data: {
-      title: 'Contact Us & Membership Inquiries | keshavsingh.in',
+      title: 'Contact Keshav Singh & Ecosystem Support | keshavsingh.in',
       description:
-        'Message Keshav Singh directly regarding creator memberships, sponsorships, bug reports, or privacy requests.',
+        'Message Keshav Singh directly regarding technical feedback, creator memberships, sponsorships, or privacy requests.',
     },
   },
   {
     path: 'privacy-policy',
-    component: PrivacyPolicyPageComponent,
+    loadComponent: () => import('./pages/legal/legal.page').then((m) => m.PrivacyPolicyPageComponent),
     data: {
-      title: 'Privacy Policy (AdSense & FamSphere) | keshavsingh.in',
+      title: 'Privacy Policy (AdSense, Central SSO & FamSphere) | keshavsingh.in',
       description:
         'Privacy policy covering keshavsingh.in, Google AdSense third-party advertising cookies, Central SSO, and FamSphere mobile permissions.',
     },
   },
   {
     path: 'privacy',
-    component: PrivacyPolicyPageComponent,
+    loadComponent: () => import('./pages/legal/legal.page').then((m) => m.PrivacyPolicyPageComponent),
     data: {
       title: 'Privacy Policy (AdSense & FamSphere) | keshavsingh.in',
       description:
         'Official Privacy Policy for keshavsingh.in and FamSphere Android/iOS mobile app (in.keshavsingh.famsphere).',
       canonicalPath: '/privacy-policy',
+      noindex: true,
     },
   },
   {
     path: 'terms',
-    component: TermsPageComponent,
+    loadComponent: () => import('./pages/legal/legal.page').then((m) => m.TermsPageComponent),
     data: {
       title: 'Terms & Conditions | keshavsingh.in',
-      description: 'Terms governing use of calculators, guides, and connected apps across keshavsingh.in.',
+      description: 'Terms governing use of calculators, technical guides, and connected apps across keshavsingh.in.',
     },
   },
   {
     path: 'terms-and-conditions',
-    component: TermsPageComponent,
+    loadComponent: () => import('./pages/legal/legal.page').then((m) => m.TermsPageComponent),
     data: {
       title: 'Terms & Conditions | keshavsingh.in',
-      description: 'Terms governing use of calculators, guides, and connected apps across keshavsingh.in.',
+      description: 'Terms governing use of calculators, technical guides, and connected apps across keshavsingh.in.',
       canonicalPath: '/terms',
+      noindex: true,
     },
   },
   {
     path: 'cookie-policy',
-    component: CookiePolicyPageComponent,
+    loadComponent: () => import('./pages/legal/legal.page').then((m) => m.CookiePolicyPageComponent),
     data: {
       title: 'Cookie Policy & Consent Settings | keshavsingh.in',
       description: 'Details on essential theme/consent preferences, telemetry, and advertising cookies on keshavsingh.in.',
@@ -163,41 +156,43 @@ export const routes: Routes = [
   },
   {
     path: 'cookies',
-    component: CookiePolicyPageComponent,
+    loadComponent: () => import('./pages/legal/legal.page').then((m) => m.CookiePolicyPageComponent),
     data: {
       title: 'Cookie Policy & Consent Settings | keshavsingh.in',
       description: 'Details on essential theme/consent preferences, telemetry, and advertising cookies on keshavsingh.in.',
       canonicalPath: '/cookie-policy',
+      noindex: true,
     },
   },
   {
     path: 'security',
-    component: SecurityPageComponent,
+    loadComponent: () => import('./pages/legal/legal.page').then((m) => m.SecurityPageComponent),
     data: {
-      title: 'Security & Responsible Disclosure | keshavsingh.in',
+      title: 'Security Architecture & Responsible Disclosure | keshavsingh.in',
       description:
         'How keshavsingh.in protects accounts with passkeys, HttpOnly sessions and TLS — and how to report a security vulnerability responsibly.',
     },
   },
   {
     path: 'disclaimer',
-    component: DisclaimerPageComponent,
+    loadComponent: () => import('./pages/legal/legal.page').then((m) => m.DisclaimerPageComponent),
     data: {
-      title: 'General & Calculator Disclaimer | keshavsingh.in',
+      title: 'General, Financial & Astronomical Disclaimer | keshavsingh.in',
       description: 'Scope disclosures for financial estimators, Panchang timings, and outbound platform links.',
     },
   },
   {
     path: 'data-deletion',
-    component: DataDeletionPageComponent,
+    loadComponent: () => import('./pages/legal/legal.page').then((m) => m.DataDeletionPageComponent),
     data: {
       title: 'Account & Data Deletion Instructions | keshavsingh.in',
       description: 'How to delete your Central SSO account, FamSphere app records, or Contact Inbox submissions.',
+      noindex: true,
     },
   },
   {
     path: 'robots',
-    component: RobotsPageComponent,
+    loadComponent: () => import('./pages/legal/legal.page').then((m) => m.RobotsPageComponent),
     data: {
       title: 'Robots.txt Directives | keshavsingh.in',
       description: 'Human-readable view of search crawler access rules on keshavsingh.in.',
@@ -206,20 +201,30 @@ export const routes: Routes = [
   },
   {
     path: 'sitemap',
-    component: SitemapPageComponent,
+    loadComponent: () => import('./pages/legal/legal.page').then((m) => m.SitemapPageComponent),
     data: {
-      title: 'Sitemap | keshavsingh.in',
-      description: 'Directory of all tools, application guides, articles, and legal pages on keshavsingh.in.',
+      title: 'Complete Site Directory | keshavsingh.in',
+      description: 'Directory of all tools, application case studies, technical articles, and policy pages on keshavsingh.in.',
+      noindex: true,
     },
   },
   {
     path: 'resume',
-    component: ResumeBridgePageComponent,
+    loadComponent: () => import('./pages/legal/legal.page').then((m) => m.ResumeBridgePageComponent),
     data: {
-      title: 'Engineering Resume & Portfolio Redirect | keshavsingh.in',
-      description: 'Keshav Singh’s engineering CV and PDF resume now live at portfolio.keshavsingh.in.',
+      title: 'Engineering Resume & Portfolio Bridge | keshavsingh.in',
+      description: 'Keshav Singh’s engineering CV and PDF resume live at portfolio.keshavsingh.in.',
+      noindex: true,
     },
   },
-  { path: '404', component: NotFoundPageComponent, data: { title: 'Page Not Found | keshavsingh.in', description: 'Route not found.', noindex: true } },
-  { path: '**', component: NotFoundPageComponent, data: { title: 'Page Not Found | keshavsingh.in', description: 'Route not found.', noindex: true } },
+  {
+    path: '404',
+    loadComponent: () => import('./pages/legal/legal.page').then((m) => m.NotFoundPageComponent),
+    data: { title: 'Page Not Found | keshavsingh.in', description: 'Route not found.', noindex: true },
+  },
+  {
+    path: '**',
+    loadComponent: () => import('./pages/legal/legal.page').then((m) => m.NotFoundPageComponent),
+    data: { title: 'Page Not Found | keshavsingh.in', description: 'Route not found.', noindex: true },
+  },
 ];

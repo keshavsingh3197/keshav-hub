@@ -5,7 +5,7 @@ import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterLinkActive, Ro
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { ECOSYSTEM_APPS } from './data/apps.catalog';
 import { CREATOR_CHANNELS, HUB_TOOLS } from './data/creators-plans.catalog';
-import { ENGINEERING_GUIDES } from './data/guides.catalog';
+import { GUIDE_CARDS } from './data/guides-cards.catalog';
 import { APP_VISUALS, CHANNEL_VISUALS, GUIDE_CATEGORY_VISUALS, TOOL_VISUALS, VisualIdentity, gradientOf, visualOf } from './data/visuals';
 import { ConsentChoice, ConsentService } from './services/consent.service';
 import { EcosystemApiService } from './services/ecosystem-api.service';
@@ -288,10 +288,10 @@ export class AppComponent implements OnInit {
   readonly gradient = gradientOf;
 
   readonly navLinks: { route: string; key: string; icon: IconName }[] = [
-    { route: '/apps', key: 'nav.apps', icon: 'sparkles' },
-    { route: '/tools', key: 'nav.tools', icon: 'calculator' },
-    { route: '/creators', key: 'nav.creators', icon: 'play' },
     { route: '/guides', key: 'nav.guides', icon: 'book' },
+    { route: '/tools', key: 'nav.tools', icon: 'calculator' },
+    { route: '/apps', key: 'nav.apps', icon: 'sparkles' },
+    { route: '/creators', key: 'nav.creators', icon: 'play' },
     { route: '/about', key: 'nav.about', icon: 'user' },
   ];
 
@@ -319,7 +319,7 @@ export class AppComponent implements OnInit {
       route: `/apps/${a.slug}`,
       visual: visualOf(APP_VISUALS, a.slug),
     })),
-    ...ENGINEERING_GUIDES.map((g) => ({
+    ...GUIDE_CARDS.map((g) => ({
       kind: this.i18n.t('nav.guides'),
       title: g.title,
       desc: g.summary,

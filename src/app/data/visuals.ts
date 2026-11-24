@@ -23,6 +23,10 @@ export const TOOL_VISUALS: Record<string, VisualIdentity> = {
   'short-hook-pacing-planner': { icon: 'clock', from: '#7c3aed', to: '#db2777' },
   'panchang-samvat-converter': { icon: 'calendar', from: '#ea580c', to: '#f59e0b' },
   'api-latency-capacity-planner': { icon: 'server', from: '#2563eb', to: '#0891b2' },
+  'ffmpeg-video-bitrate-storage-calculator': { icon: 'film', from: '#4f46e5', to: '#9333ea' },
+  'tithi-nakshatra-lunar-phase-calculator': { icon: 'sparkles', from: '#d97706', to: '#dc2626' },
+  'json-ld-seo-schema-generator': { icon: 'code', from: '#059669', to: '#0284c7' },
+  'cron-jwt-epoch-developer-toolkit': { icon: 'lock', from: '#0f766e', to: '#2563eb' },
 };
 
 export const CHANNEL_VISUALS: Record<string, VisualIdentity> = {
