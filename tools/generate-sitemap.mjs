@@ -2,6 +2,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { parseAppRoutes } from './routes-manifest.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
@@ -26,16 +27,10 @@ function extractGuideDates(relPath) {
   return map;
 }
 
-// Strictly canonical, high-substance content, tool, case-study, and author routes.
-// Non-content utility/bridge/legal routes remain crawlable via footer links without inflating sitemap.xml.
-const staticContentRoutes = [
-  '',
-  'guides',
-  'tools',
-  'apps',
-  'creators',
-  'about',
-];
+// Dynamically read static indexable routes from src/app/app.routes.ts
+const staticContentRoutes = parseAppRoutes(root)
+  .filter((r) => r.inSitemap)
+  .map((r) => r.path);
 
 const guideSlugs = extractSlugs('src/app/data/guides-cards.catalog.ts');
 const guideDateMap = extractGuideDates('src/app/data/guides-cards.catalog.ts');
@@ -69,4 +64,4 @@ const xmlEntries = allPaths
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${xmlEntries}\n</urlset>\n`;
 writeFileSync(resolve(root, 'src/sitemap.xml'), sitemap, 'utf-8');
-console.log(`Generated src/sitemap.xml with ${allPaths.length} canonical content URLs for ${BASE_URL}`);
+console.log(`Generated src/sitemap.xml dynamically with ${allPaths.length} canonical content URLs for ${BASE_URL}`);

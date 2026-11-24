@@ -68,6 +68,8 @@ export const routes: Routes = [
       description:
         'Compare open community access, Creator Studio Central SSO membership, and Pratiyogita tournament sponsorship.',
       noindex: true,
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
@@ -78,6 +80,8 @@ export const routes: Routes = [
       description:
         'Shipped engineering releases and active development tracks across keshavsingh.in, AnimStudio AI, Hindu Panchang, and Pratiyogita.',
       noindex: true,
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
@@ -88,6 +92,8 @@ export const routes: Routes = [
       description:
         'Ways to join live stream quizzes, moderated technical blog comments, SSO creator access, and community feedback.',
       noindex: true,
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
@@ -106,6 +112,8 @@ export const routes: Routes = [
       title: 'Contact Keshav Singh & Ecosystem Support | keshavsingh.in',
       description:
         'Message Keshav Singh directly regarding technical feedback, creator memberships, sponsorships, or privacy requests.',
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
@@ -115,6 +123,8 @@ export const routes: Routes = [
       title: 'Privacy Policy (AdSense, Central SSO & FamSphere) | keshavsingh.in',
       description:
         'Privacy policy covering keshavsingh.in, Google AdSense third-party advertising cookies, Central SSO, and FamSphere mobile permissions.',
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
@@ -126,6 +136,8 @@ export const routes: Routes = [
         'Official Privacy Policy for keshavsingh.in and FamSphere Android/iOS mobile app (in.keshavsingh.famsphere).',
       canonicalPath: '/privacy-policy',
       noindex: true,
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
@@ -134,6 +146,8 @@ export const routes: Routes = [
     data: {
       title: 'Terms & Conditions | keshavsingh.in',
       description: 'Terms governing use of calculators, technical guides, and connected apps across keshavsingh.in.',
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
@@ -144,6 +158,8 @@ export const routes: Routes = [
       description: 'Terms governing use of calculators, technical guides, and connected apps across keshavsingh.in.',
       canonicalPath: '/terms',
       noindex: true,
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
@@ -152,6 +168,8 @@ export const routes: Routes = [
     data: {
       title: 'Cookie Policy & Consent Settings | keshavsingh.in',
       description: 'Details on essential theme/consent preferences, telemetry, and advertising cookies on keshavsingh.in.',
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
@@ -162,6 +180,8 @@ export const routes: Routes = [
       description: 'Details on essential theme/consent preferences, telemetry, and advertising cookies on keshavsingh.in.',
       canonicalPath: '/cookie-policy',
       noindex: true,
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
@@ -171,6 +191,8 @@ export const routes: Routes = [
       title: 'Security Architecture & Responsible Disclosure | keshavsingh.in',
       description:
         'How keshavsingh.in protects accounts with passkeys, HttpOnly sessions and TLS — and how to report a security vulnerability responsibly.',
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
@@ -179,6 +201,8 @@ export const routes: Routes = [
     data: {
       title: 'General, Financial & Astronomical Disclaimer | keshavsingh.in',
       description: 'Scope disclosures for financial estimators, Panchang timings, and outbound platform links.',
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
@@ -188,6 +212,8 @@ export const routes: Routes = [
       title: 'Account & Data Deletion Instructions | keshavsingh.in',
       description: 'How to delete your Central SSO account, FamSphere app records, or Contact Inbox submissions.',
       noindex: true,
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
@@ -197,6 +223,8 @@ export const routes: Routes = [
       title: 'Robots.txt Directives | keshavsingh.in',
       description: 'Human-readable view of search crawler access rules on keshavsingh.in.',
       noindex: true,
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
@@ -206,6 +234,8 @@ export const routes: Routes = [
       title: 'Complete Site Directory | keshavsingh.in',
       description: 'Directory of all tools, application case studies, technical articles, and policy pages on keshavsingh.in.',
       noindex: true,
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
@@ -215,16 +245,18 @@ export const routes: Routes = [
       title: 'Engineering Resume & Portfolio Bridge | keshavsingh.in',
       description: 'Keshav Singh’s engineering CV and PDF resume live at portfolio.keshavsingh.in.',
       noindex: true,
+      inSitemap: false,
+      adsEligible: false,
     },
   },
   {
     path: '404',
     loadComponent: () => import('./pages/legal/legal.page').then((m) => m.NotFoundPageComponent),
-    data: { title: 'Page Not Found | keshavsingh.in', description: 'Route not found.', noindex: true },
+    data: { title: 'Page Not Found | keshavsingh.in', description: 'Route not found.', noindex: true, inSitemap: false, adsEligible: false },
   },
   {
     path: '**',
     loadComponent: () => import('./pages/legal/legal.page').then((m) => m.NotFoundPageComponent),
-    data: { title: 'Page Not Found | keshavsingh.in', description: 'Route not found.', noindex: true },
+    data: { title: 'Page Not Found | keshavsingh.in', description: 'Route not found.', noindex: true, inSitemap: false, adsEligible: false },
   },
 ];
