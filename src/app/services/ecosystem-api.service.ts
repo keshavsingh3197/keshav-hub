@@ -50,6 +50,28 @@ export interface ContactSubmission {
   message: string;
 }
 
+export interface LiveServiceStatus {
+  key: string;
+  name: string;
+  category: 'backend' | 'frontend';
+  url: string;
+  probeUrl: string;
+  status: 'operational' | 'degraded' | 'down';
+  httpStatus: number | null;
+  latencyMs: number | null;
+  note: string | null;
+}
+
+export interface LiveEcosystemStatusReport {
+  overallStatus: 'operational' | 'degraded' | 'outage';
+  healthyCount: number;
+  degradedCount: number;
+  downCount: number;
+  totalCount: number;
+  checkedAtUtc: string;
+  services: LiveServiceStatus[];
+}
+
 const HUB_API_BASE = 'https://id.keshavsingh.in/api';
 
 @Injectable({ providedIn: 'root' })
@@ -109,6 +131,11 @@ export class EcosystemApiService {
 
   submitContact(payload: ContactSubmission): Observable<{ success: boolean; message?: string }> {
     return this.http.post<{ success: boolean; message?: string }>(`${HUB_API_BASE}/contact`, payload);
+  }
+
+  getEcosystemStatus(refresh = false): Observable<LiveEcosystemStatusReport> {
+    const suffix = refresh ? '?refresh=true' : '';
+    return this.http.get<LiveEcosystemStatusReport>(`${HUB_API_BASE}/status${suffix}`);
   }
 
   trackVisit(path: string): void {

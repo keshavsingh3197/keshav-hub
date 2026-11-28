@@ -110,6 +110,7 @@ const THEME_KEY = 'ks_hub_theme';
               <li><a routerLink="/guides">{{ i18n.t('nav.guides') }}</a></li>
               <li><a routerLink="/plans">{{ i18n.t('nav.plans') }}</a></li>
               <li><a routerLink="/roadmap">{{ i18n.t('nav.roadmap') }}</a></li>
+              <li><a routerLink="/status">System Status</a></li>
             </ul>
           </nav>
 

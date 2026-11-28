@@ -250,6 +250,17 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'status',
+    loadComponent: () => import('./pages/status/status.page').then((m) => m.StatusPageComponent),
+    data: {
+      title: 'System Status & Live Service Health | keshavsingh.in',
+      description:
+        'Live availability, HTTP status, and response latency across all Keshav Ecosystem web apps and Cloud Run backend APIs.',
+      inSitemap: true,
+      adsEligible: false,
+    },
+  },
+  {
     path: '404',
     loadComponent: () => import('./pages/legal/legal.page').then((m) => m.NotFoundPageComponent),
     data: { title: 'Page Not Found | keshavsingh.in', description: 'Route not found.', noindex: true, inSitemap: false, adsEligible: false },
